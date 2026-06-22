@@ -1,247 +1,470 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Odran Leguedey — Responsable communication & événementiel</title>
-  <meta name="description" content="Book professionnel d'Odran Leguedey, responsable communication et événementiel." />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="header">
-    <nav>
-      <a href="#accueil" class="brand">Odran Leguedey</a>
-      <div>
-        <a href="#profil">Profil</a>
-        <a href="#experiences">Expérience professionnelle</a>
-        <a href="#resultats">Résultats clés</a>
-        <a href="#outils">Outils & logiciels</a>
-        <a href="#photos-videos">Photos & vidéos</a>
-        <a href="#formations">Formations</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+* {
+  box-sizing: border-box;
+}
 
-  <main>
-    <section id="accueil" class="hero">
-      <div class="hero-text">
-        <h1>Odran<br>Leguedey</h1>
-        <h2>Responsable communication & événementiel</h2>
-        <p>
-          Responsable communication avec plus de 9 ans d'expérience dans la stratégie de contenu
-          et la communication événementielle. J'accompagne les organisations dans la valorisation
-          de leur image et le déploiement de projets de communication à forte visibilité.
-        </p>
-        <div class="buttons">
-          <a href="#experiences" class="btn primary">Voir mon parcours</a>
-          <a href="#photos-videos" class="btn secondary">Voir mes contenus</a>
-        </div>
-      </div>
+:root {
+  --blue: #3d55b7;
+  --blue-dark: #263f9f;
+  --blue-soft: #eef1fb;
+  --text: #111827;
+  --muted: #5f6675;
+  --line: #d7def5;
+  --shadow: 0 22px 60px rgba(42, 60, 140, 0.12);
+}
 
-      <aside class="identity-card">
-        <p class="small-title">Expertises</p>
-        <ul>
-          <li>Communication digitale</li>
-          <li>Communication & réseaux sociaux</li>
-          <li>Production audiovisuelle & montage</li>
-          <li>Événementiel & gestion de projets</li>
-          <li>Management & coordination d’équipes</li>
-          <li>Création de contenus & storytelling</li>
-          <li>Relation presse & partenariats</li>
-        </ul>
-      </aside>
-    </section>
+html {
+  scroll-behavior: smooth;
+}
 
-    <section id="profil" class="section intro">
-      <div>
-        <p class="section-label">Profil</p>
-        <h2>Un profil communication complet, entre stratégie, production et visibilité.</h2>
-      </div>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--text);
+  line-height: 1.6;
+}
 
-      <div>
-        <p>
-          Mon parcours m’a permis d’évoluer dans des environnements variés : médias, formation,
-          santé, événementiel et communication institutionnelle. Je conçois, coordonne et valorise
-          des dispositifs de communication complets, de la stratégie à la diffusion.
-        </p>
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-        <div class="atouts-card">
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
 
-    <h3>★ ATOUTS</h3>
+.nav {
+  max-width: 1180px;
+  margin: auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
 
-    <ul>
-        <li>✔ Sens de la stratégie et de l'analyse</li>
-        <li>✔ Leadership et esprit d'équipe</li>
-        <li>✔ Créativité et force de proposition</li>
-        <li>✔ Capacité d'adaptation et réactivité</li>
-    </ul>
+.brand {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+  white-space: nowrap;
+}
 
-</div>
-      </div>
-    </section>
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 18px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--blue);
+}
 
-    <section id="experiences" class="section">
-      <p class="section-label">Expérience professionnelle</p>
+main {
+  max-width: 1180px;
+  margin: auto;
+  padding: 0 24px;
+}
 
-      <div class="experience-list">
-        <article class="experience">
-          <div class="logo-box texte-logo">AFDAS</div>
-          <div>
-            <h3>Responsable communication & événementiel</h3>
-            <p class="company">Afdas — Depuis 2024</p>
-            <ul>
-              <li>Pilotage de la stratégie de communication nationale.</li>
-              <li>Coordination d'une équipe pluridisciplinaire : communication, digital, vidéo, graphisme et événementiel.</li>
-              <li>Organisation d'événements nationaux : conférences, salons et webinaires.</li>
-              <li>Gestion des réseaux sociaux et de la ligne éditoriale LinkedIn, YouTube et Instagram.</li>
-              <li>Production de contenus à forte visibilité et suivi des KPIs.</li>
-            </ul>
-          </div>
-        </article>
+.hero {
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+  padding: 74px 0;
+}
 
-        <article class="experience">
-          <div class="logo-box texte-logo">G+IM</div>
-          <div>
-            <h3>Responsable communication</h3>
-            <p class="company">Groupe des Instituts Médicaux — 2023 - 2024</p>
-            <ul>
-              <li>Gestion des réseaux sociaux et création de contenus : posts, visuels, vidéos, stories.</li>
-              <li>Organisation de congrès et d’événements médicaux.</li>
-              <li>Réalisation et montage de podcasts.</li>
-              <li>Création de la stratégie de communication des marques du groupe.</li>
-              <li>Coordination des prestataires et management d’un alternant et d’un collaborateur.</li>
-            </ul>
-          </div>
-        </article>
+.surtitle,
+.section-label,
+.card-title {
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 13px;
+  font-weight: 900;
+  margin: 0 0 14px;
+}
 
-        <article class="experience">
-          <div class="logo-box texte-logo">IKIGAI</div>
-          <div>
-            <h3>Community Manager Senior</h3>
-            <p class="company">Groupe IKIGAI Education — 2022 - 2023</p>
-            <ul>
-              <li>Définition et mise en œuvre de la stratégie digitale pour générer des leads.</li>
-              <li>Animation des communautés et gestion des interactions.</li>
-              <li>Création de contenus, réalisation de lives et analyse des performances.</li>
-            </ul>
-          </div>
-        </article>
+h1 {
+  margin: 0 0 24px;
+  font-size: clamp(62px, 10vw, 110px);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
 
-        <article class="experience">
-          <div class="logo-box texte-logo">NRJ</div>
-          <div>
-            <h3>Community Manager</h3>
-            <p class="company">Groupe NRJ / Nostalgie — 2015 - 2022</p>
-            <ul>
-              <li>Gestion des réseaux sociaux de Nostalgie et de la matinale.</li>
-              <li>Création de contenus et planification de la stratégie digitale.</li>
-              <li>Réalisation de vidéos en direct avec OBS Studio.</li>
-              <li>Reporting et analyse des performances hebdomadaires.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
+.hero h2 {
+  margin: 0 0 22px;
+  font-size: clamp(23px, 3vw, 34px);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
 
-    <section class="section entrepreneur">
-      <p class="section-label">Expérience auto-entrepreneur</p>
-      <div class="entrepreneur-grid">
-        <div>
-          <h3>Animateur de séminaires virtuels</h3>
-          <p>Massive Immersive — 2019 - 2020</p>
-        </div>
-        <div>
-          <h3>Consulting / Community Manager</h3>
-          <p>Pure Sound Project — 2020 - 2021</p>
-        </div>
-      </div>
-    </section>
+.hero-text,
+.profil-content p,
+.media-section p,
+.contact p {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 760px;
+}
 
-    <section id="resultats" class="results">
-      <p class="section-label">Résultats clés</p>
-      <div class="result-grid">
-        <div class="result-card">
-          <span>+360 000</span>
-          <p>impressions LinkedIn en 2025 à l’Afdas</p>
-        </div>
-        <div class="result-card">
-          <span>+10 000</span>
-          <p>abonnés pour la newsletter LinkedIn Afdas créée en 1 an</p>
-        </div>
-        <div class="result-card">
-          <span>Lancement</span>
-          <p>de la plateforme OSE</p>
-        </div>
-        <div class="result-card">
-          <span>7 millions</span>
-          <p>de vues sur le compte Instagram Institut Médical Santé</p>
-        </div>
-      </div>
-    </section>
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
 
-    <section id="outils" class="section tools">
-      <p class="section-label">Outils & logiciels</p>
-      <div class="tool-list">
-        <span>Adobe Premiere Pro</span>
-        <span>Photoshop</span>
-        <span>OBS Studio</span>
-        <span>Streamyard</span>
-        <span>Livestorm</span>
-        <span>Hootsuite</span>
-        <span>Meta Business Suite</span>
-        <span>Canva</span>
-        <span>PowerPoint</span>
-        <span>Trello</span>
-        <span>WordPress</span>
-        <span>Google Analytics</span>
-      </div>
-    </section>
+.center {
+  justify-content: center;
+}
 
-    <section id="photos-videos" class="section photos-videos">
-      <p class="section-label">Photos & vidéos</p>
-      <h2>Productions, formats vidéo et contenus visuels</h2>
-      <p>
-        Cette section permettra de présenter des vidéos, photos d’événements, contenus social media,
-        interviews, formats courts et projets audiovisuels.
-      </p>
-    </section>
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-weight: 900;
+  border: 2px solid var(--blue);
+}
 
-    <section id="formations" class="section formations">
-      <p class="section-label">Formations</p>
-      <div class="formation-list">
-        <div>
-          <h3>Formation Management d’équipe</h3>
-        </div>
-        <div>
-          <h3>Formation Première Pro — Niveau 3</h3>
-        </div>
-        <div>
-          <h3>Formation Photoshop — Niveau 4</h3>
-        </div>
-        <div>
-          <h3>Formation Community Manager</h3>
-        </div>
-        <div>
-          <h3>2013 – 2015</h3>
-          <p>BTS Communication<br>Option Animation des Médias<br>Studio École de France — Issy-les-Moulineaux</p>
-        </div>
-      </div>
-    </section>
+.btn.primary {
+  background: var(--blue);
+  color: #fff;
+}
 
-    <section id="contact" class="contact">
-      <p class="section-label">Contact</p>
-      <h2>Vous souhaitez échanger ?</h2>
-      <p>Disponible pour discuter d’un projet, d’une opportunité ou d’une collaboration.</p>
-      <div class="buttons center">
-        <a href="mailto:o.leguedey@gmail.com" class="btn primary">o.leguedey@gmail.com</a>
-        <a href="https://www.linkedin.com" target="_blank" class="btn secondary">LinkedIn</a>
-      </div>
-    </section>
-  </main>
+.btn.secondary {
+  background: #fff;
+  color: var(--blue);
+}
 
-  <footer>
-    <p>© Odran Leguedey — Book professionnel</p>
-  </footer>
-</body>
-</html>
+.hero-card {
+  background: var(--blue-soft);
+  border: 1px solid var(--line);
+  border-radius: 42px;
+  padding: 34px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.hero-card li {
+  margin: 12px 0;
+  font-weight: 800;
+  color: #222;
+}
+
+.section {
+  padding: 76px 0;
+  border-top: 2px solid var(--line);
+}
+
+.section h2 {
+  margin: 0 0 28px;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--blue);
+}
+
+.profil-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.atouts-card {
+  margin-top: 34px;
+  background: var(--blue-soft);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px;
+  max-width: 500px;
+  box-shadow: 0 14px 36px rgba(42, 60, 140, 0.09);
+}
+
+.atouts-card h3 {
+  margin: 0 0 18px;
+  color: var(--blue);
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.atouts-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.atouts-card li {
+  margin: 14px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+.atouts-card li::before {
+  content: "✔";
+  color: var(--blue);
+  font-weight: 900;
+  margin-right: 12px;
+}
+
+.experience-list {
+  display: grid;
+  gap: 24px;
+  margin-top: 18px;
+}
+
+.experience-card {
+  display: grid;
+  grid-template-columns: 0.42fr 1fr;
+  gap: 32px;
+  padding: 34px;
+  border-radius: 34px;
+  border: 2px solid var(--line);
+  background: #fff;
+  box-shadow: 0 18px 46px rgba(42, 60, 140, 0.07);
+}
+
+.company-name {
+  margin: 0 0 14px;
+  color: var(--blue);
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 0.94;
+  font-weight: 1000;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.company-role {
+  margin: 0 0 6px;
+  font-size: 21px;
+  color: #111;
+  font-weight: 900;
+}
+
+.company-date {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.experience-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.experience-card li {
+  margin: 8px 0;
+  font-size: 17px;
+}
+
+.afdas {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f6ff 100%);
+}
+
+.gim {
+  background: linear-gradient(135deg, #ffffff 0%, #f2fbfc 100%);
+}
+
+.ikigai {
+  background: linear-gradient(135deg, #ffffff 0%, #fff4f5 100%);
+}
+
+.nrj {
+  background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+}
+
+.entrepreneur-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.entrepreneur-grid div,
+.formation-list article {
+  background: var(--blue-soft);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.entrepreneur-grid h3,
+.formation-list h3,
+.media-placeholder h3 {
+  margin: 0 0 6px;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.entrepreneur-grid p,
+.formation-list p,
+.media-placeholder p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.result-card {
+  min-height: 190px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 30px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.result-card span {
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 0.95;
+  font-weight: 1000;
+  letter-spacing: -0.05em;
+}
+
+.result-card p {
+  margin: 18px 0 0;
+  font-weight: 800;
+}
+
+.tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tool-list span {
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  border: 1px solid var(--line);
+  font-weight: 900;
+}
+
+.media-placeholder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.media-placeholder div {
+  min-height: 180px;
+  border: 2px dashed var(--line);
+  border-radius: 30px;
+  padding: 28px;
+  background: #fafbff;
+}
+
+.formations-section {
+  opacity: 0.92;
+}
+
+.formation-list {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+}
+
+.contact {
+  padding: 82px 0;
+  text-align: center;
+  border-top: 2px solid var(--line);
+}
+
+.contact h2 {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5vw, 58px);
+  color: var(--blue);
+  letter-spacing: -0.05em;
+}
+
+footer {
+  max-width: 1180px;
+  margin: auto;
+  padding: 34px 24px 52px;
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .menu {
+    justify-content: flex-start;
+  }
+
+  .hero,
+  .profil-section,
+  .experience-card,
+  .entrepreneur-grid,
+  .result-grid,
+  .media-placeholder {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 52px 0;
+  }
+
+  .company-name {
+    font-size: 42px;
+  }
+
+  .section {
+    padding: 58px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  main,
+  .nav {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  h1 {
+    font-size: 58px;
+  }
+
+  .hero-card,
+  .experience-card,
+  .atouts-card,
+  .result-card {
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .menu {
+    gap: 12px;
+    font-size: 13px;
+  }
+}

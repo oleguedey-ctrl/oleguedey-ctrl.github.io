@@ -1,43 +1,256 @@
-.formation-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  max-width: 100%;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odran Leguedey — Responsable communication & événementiel</title>
+  <meta name="description" content="Portfolio professionnel d'Odran Leguedey, responsable communication et événementiel." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-.formation-list article {
-  background: #f4f6ff;
-  border: 2px solid #d7def5;
-  border-radius: 26px;
-  padding: 26px;
-  box-shadow: 0 12px 30px rgba(42, 60, 140, 0.08);
-}
+<header class="header">
+  <nav class="nav">
+    <a href="#accueil" class="brand">Odran Leguedey</a>
+    <div class="menu">
+      <a href="#profil">Profil</a>
+      <a href="#experiences">Expérience professionnelle</a>
+      <a href="#resultats">Résultats clés</a>
+      <a href="#outils">Outils & logiciels</a>
+      <a href="#photos-videos">Photos & vidéos</a>
+      <a href="#formations">Formations</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
 
-.formation-list article:last-child {
-  grid-column: 1 / -1;
-  background: #ffffff;
-}
+<main>
 
-.formation-list h3 {
-  margin: 0 0 8px;
-  color: #3d55b7;
-  font-size: 24px;
-  font-weight: 900;
-}
+  <section id="accueil" class="hero">
+    <div class="hero-content">
+      <p class="surtitle">Portfolio</p>
+      <h1>Odran<br>Leguedey</h1>
+      <h2>Responsable communication & événementiel</h2>
+      <p class="hero-text">Responsable communication avec plus de 9 ans d'expérience dans la stratégie de contenu et la communication événementielle. J'accompagne les organisations dans la valorisation de leur image et le déploiement de projets de communication à forte visibilité.</p>
+      <div class="buttons">
+        <a href="#experiences" class="btn primary">Voir mon parcours</a>
+        <a href="#contact" class="btn secondary">Me contacter</a>
+      </div>
+    </div>
 
-.formation-list p {
-  margin: 0;
-  color: #5f6675;
-  font-size: 17px;
-  line-height: 1.5;
-}
+    <aside class="hero-card">
+      <p class="card-title">Expertises</p>
+      <ul>
+        <li>Communication digitale</li>
+        <li>Communication & réseaux sociaux</li>
+        <li>Production audiovisuelle & montage</li>
+        <li>Événementiel & gestion de projets</li>
+        <li>Management & coordination d’équipes</li>
+        <li>Création de contenus & storytelling</li>
+        <li>Relation presse & partenariats</li>
+      </ul>
+    </aside>
+  </section>
 
-@media (max-width: 800px) {
-  .formation-list {
-    grid-template-columns: 1fr;
-  }
+  <section id="profil" class="section profil-section">
+    <div class="section-heading">
+      <p class="section-label">Profil</p>
+      <h2>Un profil communication complet, entre stratégie, production et visibilité.</h2>
+    </div>
 
-  .formation-list article:last-child {
-    grid-column: auto;
-  }
-}
+    <div class="profil-content">
+      <p>Mon parcours m’a permis d’évoluer dans des environnements variés : médias, formation, santé, événementiel et communication institutionnelle. Je conçois, coordonne et valorise des dispositifs de communication complets, de la stratégie à la diffusion.</p>
+
+      <div class="atouts-card">
+        <h3>★ Atouts</h3>
+        <ul>
+          <li>Sens de la stratégie et de l'analyse</li>
+          <li>Leadership et esprit d'équipe</li>
+          <li>Créativité et force de proposition</li>
+          <li>Capacité d'adaptation et réactivité</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiences" class="section">
+    <p class="section-label">Expérience professionnelle</p>
+    <h2>Parcours</h2>
+
+    <div class="experience-list">
+
+      <article class="experience-card afdas">
+        <div class="company-block">
+          <p class="company-name">AFDAS</p>
+          <p class="company-role">Responsable communication & événementiel</p>
+          <p class="company-date">Depuis 2024</p>
+        </div>
+        <ul>
+          <li>Pilotage de la stratégie de communication nationale.</li>
+          <li>Coordination d'une équipe pluridisciplinaire : communication, digital, vidéo, graphisme et événementiel.</li>
+          <li>Organisation d'événements nationaux : conférences, salons et webinaires.</li>
+          <li>Gestion des réseaux sociaux et de la ligne éditoriale LinkedIn, YouTube et Instagram.</li>
+          <li>Production de contenus à forte visibilité et suivi des KPIs.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card gim">
+        <div class="company-block">
+          <p class="company-name">GROUPE DES INSTITUTS MÉDICAUX</p>
+          <p class="company-role">Responsable communication</p>
+          <p class="company-date">2023 - 2024</p>
+        </div>
+        <ul>
+          <li>Gestion des réseaux sociaux et création de contenus : posts, visuels, vidéos, stories.</li>
+          <li>Organisation de congrès et d’événements médicaux.</li>
+          <li>Réalisation et montage de podcasts.</li>
+          <li>Création de la stratégie de communication des marques du groupe.</li>
+          <li>Coordination des prestataires et management d’un alternant et d’un collaborateur.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card ikigai">
+        <div class="company-block">
+          <p class="company-name">IKIGAI EDUCATION</p>
+          <p class="company-role">Community Manager Senior</p>
+          <p class="company-date">2022 - 2023</p>
+        </div>
+        <ul>
+          <li>Définition et mise en œuvre de la stratégie digitale pour générer des leads.</li>
+          <li>Animation des communautés et gestion des interactions.</li>
+          <li>Création de contenus, réalisation de lives et analyse des performances.</li>
+        </ul>
+      </article>
+
+      <article class="experience-card nrj">
+        <div class="company-block">
+          <p class="company-name">NRJ GROUP / NOSTALGIE</p>
+          <p class="company-role">Community Manager</p>
+          <p class="company-date">2015 - 2022</p>
+        </div>
+        <ul>
+          <li>Gestion des réseaux sociaux de Nostalgie et de la matinale.</li>
+          <li>Création de contenus et planification de la stratégie digitale.</li>
+          <li>Réalisation de vidéos en direct avec OBS Studio.</li>
+          <li>Reporting et analyse des performances hebdomadaires.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section entrepreneur">
+    <p class="section-label">Expérience auto-entrepreneur</p>
+    <div class="entrepreneur-grid">
+      <div>
+        <h3>Animateur de séminaires virtuels</h3>
+        <p>Massive Immersive — 2019 - 2020</p>
+      </div>
+      <div>
+        <h3>Consulting / Community Manager</h3>
+        <p>Pure Sound Project — 2020 - 2021</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultats" class="section results-section">
+    <p class="section-label">Résultats clés</p>
+    <h2>Quelques résultats issus de mon parcours</h2>
+
+    <div class="result-grid">
+      <div class="result-card">
+        <span>+360 000</span>
+        <p>impressions LinkedIn en 2025 à l’Afdas</p>
+      </div>
+      <div class="result-card">
+        <span>+10 000</span>
+        <p>abonnés pour la newsletter LinkedIn Afdas créée en 1 an</p>
+      </div>
+      <div class="result-card">
+        <span>Lancement</span>
+        <p>de la plateforme OSE</p>
+      </div>
+      <div class="result-card">
+        <span>7 millions</span>
+        <p>de vues sur le compte Instagram Institut Médical Santé</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="outils" class="section">
+    <p class="section-label">Outils & logiciels</p>
+    <h2>Outils maîtrisés</h2>
+    <div class="tool-list">
+      <span>Adobe Premiere Pro</span>
+      <span>Photoshop</span>
+      <span>OBS Studio</span>
+      <span>Streamyard</span>
+      <span>Livestorm</span>
+      <span>Hootsuite</span>
+      <span>Meta Business Suite</span>
+      <span>Canva</span>
+      <span>PowerPoint</span>
+      <span>Trello</span>
+      <span>WordPress</span>
+      <span>Google Analytics</span>
+    </div>
+  </section>
+
+  <section id="photos-videos" class="section media-section">
+    <p class="section-label">Photos & vidéos</p>
+    <h2>Productions, contenus visuels et formats vidéo</h2>
+    <p>Cette section est prête à accueillir mes vidéos, photos d’événements, contenus social media, interviews, formats courts et projets audiovisuels.</p>
+
+    <div class="media-placeholder">
+      <div>
+        <h3>Vidéos</h3>
+        <p>Ajout des vidéos à venir.</p>
+      </div>
+      <div>
+        <h3>Photos</h3>
+        <p>Ajout des visuels à venir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="formations" class="section formations-section">
+    <p class="section-label">Formations</p>
+
+    <div class="formation-list">
+      <article>
+        <h3>Formation Management d’équipe</h3>
+      </article>
+      <article>
+        <h3>Formation Première Pro — Niveau 3</h3>
+      </article>
+      <article>
+        <h3>Formation Photoshop — Niveau 4</h3>
+      </article>
+      <article>
+        <h3>Formation Community Manager</h3>
+      </article>
+      <article>
+        <h3>2013 – 2015</h3>
+        <p>BTS Communication<br>Option Animation des Médias<br>Studio École de France — Issy-les-Moulineaux</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <p class="section-label">Contact</p>
+    <h2>Vous souhaitez échanger ?</h2>
+    <p>Disponible pour discuter d’un projet, d’une opportunité ou d’une collaboration.</p>
+    <div class="buttons center">
+      <a href="mailto:o.leguedey@gmail.com" class="btn primary">o.leguedey@gmail.com</a>
+      <a href="https://www.linkedin.com" target="_blank" class="btn secondary">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© Odran Leguedey — Portfolio professionnel</p>
+</footer>
+
+</body>
+</html>

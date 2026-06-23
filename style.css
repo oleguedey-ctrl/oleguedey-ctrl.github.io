@@ -791,4 +791,20 @@ ul { list-style: none; }
     
     .hero-cta { flex-direction: column; }
     .btn { width: 100%; }
+   /* Titre incrusté en haut de chaque vidéo */
+.video-title-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    pointer-events: none; /* Laisse passer le clic pour faire "Play" */
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
 }

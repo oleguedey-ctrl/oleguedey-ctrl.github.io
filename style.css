@@ -765,4 +765,18 @@ ul { list-style: none; }
     .timeline-marker { left: -7px; }
     
     .section { padding: 4rem 0; }
+   /* Container et style pour la photo */
+.profil-photo-container {
+    text-align: center;
+    margin-bottom: 20px; /* Espace entre la photo et le texte */
+}
+
+.profil-photo {
+    width: 150px;       /* Taille de la photo (tu peux ajuster) */
+    height: 150px;      /* Garde la même valeur que width pour un cercle parfait */
+    object-fit: cover;  /* Évite que la photo ne soit déformée */
+    border-radius: 50%; /* Rend la photo ronde */
+    border: 4px solid #3b82f6; /* Ajoute un contour bleu assorti à ton site */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Petit effet d'ombre élégant */
+}
 }

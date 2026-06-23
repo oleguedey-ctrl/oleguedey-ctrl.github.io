@@ -1,13 +1,348 @@
-<section id="portfolio-video">
-    <div class="video-carousel">
-        <div class="video-card">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/TA_ID_1"></iframe></div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Odran<span class="text-gradient">Leguedey</span></a>
+            <ul class="nav-links">
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#resultats">Résultats</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#resultats">Résultats</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menu">
+@@ -29,21 +30,23 @@
         </div>
-        <div class="video-card">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/TA_ID_2"></iframe></div>
+    </nav>
+
+    <!-- Hero Section avec Image de fond -->
+    <header class="hero" id="accueil">
+        <div class="hero-bg-shapes"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="glass-badge reveal">Portfolio Professionnel</div>
+            <h1 class="reveal delay-1">Odran Leguedey</h1>
+            <p class="hero-subtitle reveal delay-2">Responsable Communication <span class="text-gradient">& Événementiel</span></p>
+            <!-- Modification suite à image_0c001d.png : "Communication" est maintenant englobé dans le dégradé bleu -->
+            <p class="hero-subtitle reveal delay-2">Responsable <span class="text-gradient">Communication & Événementiel</span></p>
+            <p class="hero-description reveal delay-3">+9 ans d'expérience en stratégie de contenu, communication événementielle et valorisation d'image.</p>
+            <div class="hero-cta reveal delay-4">
+                <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Me contacter</a>
+                <a href="#experience" class="btn btn-secondary"><i class="fa-solid fa-arrow-down"></i> Voir mon parcours</a>
+                <a href="#resultats" class="btn btn-secondary"><i class="fa-solid fa-arrow-down"></i> Voir mes réussites</a>
+            </div>
         </div>
-        <div class="video-card">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/TA_ID_3"></iframe></div>
+    </header>
+
+    <!-- Profil Section -->
+    <section class="section" id="profil">
+        <div class="container">
+            <h2 class="section-title reveal">Profil</h2>
+@@ -77,11 +80,47 @@ <h3>Réactivité</h3>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="section section-alt" id="experience">
+    <!-- Résultats Section (Remontée au-dessus de l'expérience) -->
+    <section class="section section-alt" id="resultats">
+        <div class="container">
+            <h2 class="section-title reveal">Résultats Clés</h2>
+            
+            <div class="results-grid">
+                <div class="result-card reveal">
+                    <i class="fa-brands fa-linkedin result-icon"></i>
+                    <span class="result-number">+360k</span>
+                    <span class="result-label">Impressions LinkedIn</span>
+                    <span class="result-context">Afdas en 2025</span>
+                </div>
+                <div class="result-card reveal delay-1">
+                    <i class="fa-solid fa-envelope-open-text result-icon"></i>
+                    <span class="result-number">+10k</span>
+                    <span class="result-label">Abonnés Newsletter</span>
+                    <span class="result-context">Panorama en 1 an</span>
+                </div>
+                <div class="result-card reveal delay-2">
+                    <i class="fa-brands fa-instagram result-icon"></i>
+                    <span class="result-number">7M</span>
+                    <span class="result-label">Vues Instagram</span>
+                    <span class="result-context">Institut Médical Sport Santé</span>
+                </div>
+                <div class="result-card reveal delay-3">
+                    <i class="fa-solid fa-rocket result-icon"></i>
+                    <span class="result-number">OSE</span>
+                    <span class="result-label">Lancement Plateforme</span>
+                    <span class="result-context">Orientation sur les métiers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expérience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title reveal">Expérience Professionnelle</h2>
+
+            <div class="timeline">
+                <!-- Afdas -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+@@ -92,17 +131,18 @@ <h3>Responsable Communication & Événementiel</h3>
+                        </div>
+                        <p class="timeline-description">Opérateur de compétences de la culture, des médias, du sport, des loisirs et du divertissement.</p>
+                        <ul class="timeline-tasks">
+                            <li>Pilotage de la stratégie de communication nationale</li>
+                            <li>Coordination d'une équipe pluridisciplinaire (communication, digital, vidéo, graphisme et événementiel)</li>
+                            <li>Lancement de la plateforme OSE dédiée à l'orientation et à l'information sur les métiers</li>
+                            <li>Pilotage du studio TV interne : conception, tournage et diffusion de contenus vidéo</li>
+                            <li>Organisation d'événements nationaux (conférences, salons, webinaires)</li>
+                            <li>Gestion des réseaux sociaux et de la ligne éditoriale</li>
+                            <li>Production de contenus à forte visibilité : <strong>+360 000 impressions LinkedIn</strong> en 2025</li>
+                            <li><strong>Pilotage de la stratégie</strong> de communication nationale</li>
+                            <li><strong>Coordination d'équipe</strong> pluridisciplinaire (communication, digital, vidéo, graphisme et événementiel)</li>
+                            <li><strong>Lancement de la plateforme OSE</strong> dédiée à l'orientation et à l'information sur les métiers</li>
+                            <li><strong>Pilotage du studio TV</strong> interne : conception, tournage et diffusion de contenus vidéo</li>
+                            <li><strong>Organisation d'événements</strong> nationaux (conférences, salons, webinaires)</li>
+                            <li><strong>Gestion de la ligne éditoriale</strong> et des réseaux sociaux</li>
+                            <li><strong>Production de contenus</strong> à forte visibilité : +360 000 impressions LinkedIn en 2025</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GIM -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+@@ -113,15 +153,16 @@ <h3>Responsable Communication</h3>
+                        </div>
+                        <p class="timeline-description">Centres médicaux spécialisés dans la santé, le sport et le bien-être.</p>
+                        <ul class="timeline-tasks">
+                            <li>Gestion des réseaux sociaux et création de contenus</li>
+                            <li>Organisation de congrès et d'événements médicaux</li>
+                            <li>Réalisation et montage de podcasts</li>
+                            <li>Création de la stratégie de communication des marques du groupe</li>
+                            <li>Lancement de la marque Institut Médical de la Peau</li>
+                            <li><strong>Création de la stratégie</strong> de communication des marques du groupe</li>
+                            <li><strong>Gestion des réseaux sociaux</strong> et création de contenus attractifs</li>
+                            <li><strong>Organisation de congrès</strong> et d'événements médicaux</li>
+                            <li><strong>Réalisation et montage</strong> de podcasts</li>
+                            <li><strong>Lancement de la marque</strong> Institut Médical de la Peau</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- IKIGAI -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+@@ -130,16 +171,18 @@ <h3>Community Manager Senior</h3>
+                            <span class="timeline-company"><i class="fa-solid fa-building"></i> Groupe IKIGAI Education</span>
+                            <span class="timeline-date">2022 - 2023</span>
+                        </div>
+                        <p class="timeline-description">Établissements d'enseignement supérieur et de formation professionnelle.</p>
+                        <ul class="timeline-tasks">
+                            <li>Définition et mise en œuvre de la stratégie digitale pour générer des leads</li>
+                            <li>Animation des communautés et gestion des interactions</li>
+                            <li>Création de contenus (publications, visuels, vidéos, stories, jeux)</li>
+                            <li>Réalisation de lives (Facebook, YouTube) avec Streamyard</li>
+                            <li>Analyse des performances et optimisation des campagnes</li>
+                            <li><strong>Définition et mise en œuvre</strong> de la stratégie digitale pour générer des leads</li>
+                            <li><strong>Animation des communautés</strong> et gestion quotidienne des interactions</li>
+                            <li><strong>Création de contenus</strong> variés (publications, visuels, vidéos, stories, jeux)</li>
+                            <li><strong>Réalisation de lives</strong> (Facebook, YouTube) avec Streamyard</li>
+                            <li><strong>Analyse des performances</strong> et optimisation des campagnes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NRJ -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+@@ -148,19 +191,21 @@ <h3>Community Manager</h3>
+                            <span class="timeline-company"><i class="fa-solid fa-building"></i> Groupe NRJ / Nostalgie</span>
+                            <span class="timeline-date">2015 - 2022</span>
+                        </div>
+                        <p class="timeline-description">領導地位的法國廣播電台暨多媒體娛樂集團.</p>
+                        <ul class="timeline-tasks">
+                            <li>Gestion des réseaux sociaux de Nostalgie et de la matinale</li>
+                            <li>Création de contenus et planification de la stratégie digitale</li>
+                            <li>Réalisation de vidéos en direct avec OBS Studio</li>
+                            <li>Reporting et analyse des performances hebdomadaires</li>
+                            <li><strong>Gestion des réseaux sociaux</strong> de Nostalgie et de la matinale</li>
+                            <li><strong>Planification de la stratégie</strong> digitale et création de contenus</li>
+                            <li><strong>Réalisation de vidéos en direct</strong> avec OBS Studio</li>
+                            <li><strong>Reporting et analyse</strong> des performances hebdomadaires</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="competences">
+    <!-- Compétences & Formations Section -->
+    <section class="section section-alt" id="competences">
+        <div class="container">
+            <h2 class="section-title reveal">Compétences & Outils</h2>
+
+@@ -197,61 +242,33 @@ <h3><i class="fa-solid fa-screwdriver-wrench"></i> Outils & Logiciels</h3>
+                </div>
+            </div>
+
+            <div class="formations glass-card reveal">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Formations</h3>
+            <!-- Partie Formations mise à jour : Carrés individuels, triés de Management à BTS -->
+            <div class="formations-container reveal">
+                <h3 class="formations-section-title"><i class="fa-solid fa-graduation-cap"></i> Parcours de Formation</h3>
+                <div class="formation-grid">
+                    <div class="formation-item">
+                        <div class="formation-icon"><i class="fa-solid fa-award"></i></div>
+                        <div>
+                            <strong>BTS Communication</strong>
+                            <p>Option Animation des Médias<br>Studio École de France – Issy-les-Moulineaux (2013 – 2015)</p>
+                    <!-- Première formation : Management & Outils (Commence par ici) -->
+                    <div class="formation-card highlight-formation">
+                        <div class="formation-icon highlight-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="formation-info">
+                            <strong class="highlight-title">Formations Spécialisées</strong>
+                            <p>Management d'équipe • Premiere Pro (Niv. 3) • Photoshop (Niv. 4) • Community Manager</p>
+                        </div>
+                    </div>
+                    <div class="formation-item">
+                        <div class="formation-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div>
+                            <strong>Formations complémentaires</strong>
+                            <p>Management d'équipe • Premiere Pro (Niv. 3) • Photoshop (Niv. 4) • Community Manager</p>
+                    <!-- Deuxième formation : BTS (Termine par ici) -->
+                    <div class="formation-card">
+                        <div class="formation-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="formation-info">
+                            <strong>BTS Communication</strong>
+                            <span class="formation-specialty">Option Animation des Médias</span>
+                            <p>Studio École de France<br>Issy-les-Moulineaux (2013 – 2015)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="resultats">
+        <div class="container">
+            <h2 class="section-title reveal">Résultats Clés</h2>
+            
+            <div class="results-grid">
+                <div class="result-card reveal">
+                    <i class="fa-brands fa-linkedin result-icon"></i>
+                    <span class="result-number">+360k</span>
+                    <span class="result-label">Impressions LinkedIn</span>
+                    <span class="result-context">Afdas en 2025</span>
+                </div>
+                <div class="result-card reveal delay-1">
+                    <i class="fa-solid fa-envelope-open-text result-icon"></i>
+                    <span class="result-number">+10k</span>
+                    <span class="result-label">Abonnés Newsletter</span>
+                    <span class="result-context">Panorama en 1 an</span>
+                </div>
+                <div class="result-card reveal delay-2">
+                    <i class="fa-brands fa-instagram result-icon"></i>
+                    <span class="result-number">7M</span>
+                    <span class="result-label">Vues Instagram</span>
+                    <span class="result-context">Institut Médical Sport Santé</span>
+                </div>
+                <div class="result-card reveal delay-3">
+                    <i class="fa-solid fa-rocket result-icon"></i>
+                    <span class="result-number">OSE</span>
+                    <span class="result-label">Lancement Plateforme</span>
+                    <span class="result-context">Orientation sur les métiers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title reveal">Contact</h2>
+@@ -270,7 +287,8 @@ <h2 class="section-title reveal">Contact</h2>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">o.leguedey@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/odran-leguedey" target="_blank" rel="noopener" class="contact-card reveal delay-2">
+                    <!-- Lien LinkedIn mis à jour avec ton identifiant exact -->
+                    <a href="https://www.linkedin.com/in/odran-leguedey-1ba278154" target="_blank" rel="noopener" class="contact-card reveal delay-2">
+                        <i class="fa-brands fa-linkedin contact-icon"></i>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">Odran Leguedey</span>
+@@ -285,14 +303,14 @@ <h2 class="section-title reveal">Contact</h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Odran Leguedey. Tous droits réservés. | Conçu avec passion.</p>
+            <p>&copy; 2026 Odran Leguedey. Tous droits réservés. | Conçu avec passion.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation mobile toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+@@ -301,7 +319,6 @@ <h2 class="section-title reveal">Contact</h2>
+            navToggle.classList.toggle('active');
+        });
+
+        // Smooth scroll pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+@@ -314,7 +331,6 @@ <h2 class="section-title reveal">Contact</h2>
+            });
+        });
+
+        // Navbar dynamique au scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+@@ -324,28 +340,18 @@ <h2 class="section-title reveal">Contact</h2>
+            }
+        });
+
+        // Scroll Reveal Animations (Effet Tech/Pro)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+        revealElements.forEach(el => revealOnScroll.observe(el));
+    </script>
+</body>
+</html>

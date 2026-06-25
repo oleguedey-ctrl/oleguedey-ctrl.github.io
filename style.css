@@ -782,4 +782,11 @@ ul { list-style: none; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
     display: block !important;
     margin: 0 auto !important;
-}
+   /* Force la petite taille spécifiquement sur les écrans d'ordinateurs */
+@media (min-width: 769px) {
+    .profil-photo {
+        width: 120px !important;
+        height: 120px !important;
+        min-width: 120px !important;
+        min-height: 120px !important;
+    }

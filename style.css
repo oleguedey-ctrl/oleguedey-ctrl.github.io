@@ -765,12 +765,9 @@ ul { list-style: none; }
     .timeline-marker { left: -7px; }
     
     .section { padding: 4rem 0; }
-/* Style pour la photo de profil */
-.profil-photo-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
+   /* ---- AJOUTER TOUT EN BAS DE TON FICHIER STYLE.CSS ---- */
 
+/* 1. Ce bloc fonctionne pour TOUS les écrans (PC et Téléphone) */
 .profil-photo {
     width: 120px !important;
     height: 120px !important;
@@ -782,11 +779,13 @@ ul { list-style: none; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
     display: block !important;
     margin: 0 auto !important;
-   /* Force la petite taille spécifiquement sur les écrans d'ordinateurs */
+}
+
+/* 2. Ce bloc gère la disposition du texte à côté sur PC */
 @media (min-width: 769px) {
-    .profil-photo {
-        width: 120px !important;
-        height: 120px !important;
-        min-width: 120px !important;
-        min-height: 120px !important;
+    .profil-container {
+        display: flex !important;
+        align-items: center !important;
+        gap: 30px !important;
     }
+}

@@ -787,6 +787,9 @@ ul { list-style: none; }
 @media (min-width: 769px) {
     .profil-container {
         display: flex !important;
-        align-items: center !important;
+        flex-direction: column !important; /* Force la colonne si tu veux la photo au-dessus du texte */
+        justify-content: center !important; /* Centre verticalement */
+        align-items: center !important;     /* Centre horizontalement */
         gap: 30px !important;
+        padding: 20px 0 !important;         /* Ajoute un peu d'air en haut et en bas */
 }

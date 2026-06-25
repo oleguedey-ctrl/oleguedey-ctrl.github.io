@@ -767,7 +767,6 @@ ul { list-style: none; }
     .section { padding: 4rem 0; }
    /* ---- AJOUTER TOUT EN BAS DE TON FICHIER STYLE.CSS ---- */
 
-/* 1. Ce bloc fonctionne pour TOUS les écrans (PC et Téléphone) */
 .profil-photo {
     width: 120px !important;
     height: 120px !important;

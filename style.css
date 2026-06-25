@@ -792,4 +792,5 @@ ul { list-style: none; }
         align-items: center !important;     /* Centre horizontalement */
         gap: 30px !important;
         padding: 20px 0 !important;         /* Ajoute un peu d'air en haut et en bas */
+    }
 }

@@ -793,4 +793,31 @@ ul { list-style: none; }
         gap: 30px !important;
         padding: 20px 0 !important;         /* Ajoute un peu d'air en haut et en bas */
     }
+   /* Grille pour aligner les vidéos */
+.video-grid {
+    display: grid;
+    /* Crée des colonnes d'au moins 300px, elles se répartissent l'espace */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding-top: 20px;
+}
+
+/* Style des liens vidéos */
+.video-card {
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.video-card:hover {
+    transform: scale(1.03); /* Effet léger au survol */
+}
+
+/* Format des images en horizontal (16/9) */
+.video-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Force le format paysage */
+    object-fit: cover;    /* Recadre pour remplir le rectangle sans déformer */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }

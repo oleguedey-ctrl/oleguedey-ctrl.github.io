@@ -765,9 +765,12 @@ ul { list-style: none; }
     .timeline-marker { left: -7px; }
     
     .section { padding: 4rem 0; }
-   /* ---- AJOUTER TOUT EN BAS DE TON FICHIER STYLE.CSS ---- */
+/* ... tout ton code existant ... */
+    
+    .section { padding: 4rem 0; }
+} /* <--- C'est ici que ton @media se ferme, il faut que ton bloc sorte de là */
 
-/* Style unique et forcé pour la photo, sur TOUS les écrans */
+/* Colle le bloc ICI, tout à la fin, complètement en dehors des accolades */
 .profil-photo {
     width: 120px !important;
     height: 120px !important;
@@ -776,15 +779,14 @@ ul { list-style: none; }
     object-fit: cover !important;
     border-radius: 50% !important;
     border: 4px solid #3b82f6 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
     display: block !important;
     margin: 0 auto !important;
 }
 
-/* 2. Ce bloc gère la disposition du texte à côté sur PC */
 @media (min-width: 769px) {
     .profil-container {
         display: flex !important;
         align-items: center !important;
         gap: 30px !important;
-    }
 }

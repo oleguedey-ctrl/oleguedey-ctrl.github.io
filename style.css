@@ -820,4 +820,49 @@ ul { list-style: none; }
     object-fit: cover;    /* Recadre pour remplir le rectangle sans déformer */
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+   /* --- SÉCURITÉ ET RESPONSIVE DES VIDÉOS --- */
+
+/* 1. On s'assure que le conteneur ne déborde pas */
+#videos {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden; 
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.profil-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 2. La grille sécurisée (remplace l'ancienne si elle existait) */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 3. Les cartes vidéos */
+.video-card {
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.video-card:hover {
+    transform: scale(1.03);
+}
+
+.video-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: block; /* Important pour éviter les marges invisibles */
 }

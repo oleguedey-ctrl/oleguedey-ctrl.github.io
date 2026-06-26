@@ -972,3 +972,16 @@ ul { list-style: none; }
         pointer-events: auto !important;
     }
 }
+
+    /* TEST ULTIME - À AJOUTER EN TOUT DERNIER DANS LE CSS */
+#toast-notif {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: red !important; /* On met un fond rouge pour être SÛR de le voir */
+    z-index: 999999 !important;
+    position: fixed !important;
+    bottom: 50px !important;
+    right: 50px !important;
+    pointer-events: auto !important;
+}

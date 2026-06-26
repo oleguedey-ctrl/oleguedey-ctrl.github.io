@@ -10,6 +10,7 @@ html, body {
     box-sizing: border-box; /* Force le calcul de la taille incluant les marges */
     max-width: 100vw;       /* Empêche n'importe quel élément de dépasser l'écran */
 }
+
 /* ========================================
    Variables & Reset
 ======================================== */
@@ -222,10 +223,9 @@ ul { list-style: none; }
     text-align: center;
     position: relative;
     overflow: hidden;
-    background-color: #000; /* Fallback couleur si la vidéo met du temps à charger */
+    background-color: #000;
 }
 
-/* Ajout pour la vidéo de fond */
 .hero-video {
     position: absolute;
     top: 0;
@@ -240,12 +240,12 @@ ul { list-style: none; }
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9));
-    z-index: 1; /* Surélève par rapport à la vidéo */
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Surélève par rapport à l'overlay */
+    z-index: 2;
     padding: 0 1.5rem;
     max-width: 900px;
 }
@@ -423,15 +423,14 @@ ul { list-style: none; }
     box-shadow: var(--shadow-lg);
 }
 
-/* RÉDUCTION DE L'ESPACEMENT ICI */
 .timeline-header { 
-    margin-bottom: 0.5rem; /* Réduit */
+    margin-bottom: 0.5rem;
 }
 
 .timeline-header h3 { 
     color: var(--dark); 
     font-size: 1.3rem; 
-    margin-bottom: 0.2rem; /* Rapproche le titre de l'entreprise */
+    margin-bottom: 0.2rem;
 }
 
 .timeline-company {
@@ -440,7 +439,7 @@ ul { list-style: none; }
     gap: 0.5rem;
     color: var(--secondary);
     font-weight: 600;
-    margin-top: 0; /* Supprimé pour rapprocher */
+    margin-top: 0;
 }
 
 .timeline-date {
@@ -451,16 +450,15 @@ ul { list-style: none; }
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
-    margin-top: 0.25rem; /* Fortement réduit */
-    margin-bottom: 0.5rem; /* Ajouté pour séparer légèrement de la suite */
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .timeline-description { 
     color: var(--gray); 
     font-style: italic; 
-    margin-bottom: 0.75rem; /* Réduit */
+    margin-bottom: 0.75rem;
 }
-/* FIN DE RÉDUCTION DE L'ESPACEMENT */
 
 .timeline-tasks li {
     position: relative;
@@ -743,7 +741,7 @@ ul { list-style: none; }
 }
 
 /* ========================================
-   Responsive
+   Responsive Général (Mobile)
 ======================================== */
 @media (max-width: 768px) {
     .nav-toggle { display: flex; }
@@ -777,12 +775,11 @@ ul { list-style: none; }
     .timeline-marker { left: -7px; }
     
     .section { padding: 4rem 0; }
-/* ... tout ton code existant ... */
-    
-    .section { padding: 4rem 0; }
-} /* <--- C'est ici que ton @media se ferme, il faut que ton bloc sorte de là */
+}
 
-/* Colle le bloc ICI, tout à la fin, complètement en dehors des accolades */
+/* ========================================
+   Éléments spécifiques et Correctifs de fin
+======================================== */
 .profil-photo {
     width: 120px !important;
     height: 120px !important;
@@ -795,6 +792,7 @@ ul { list-style: none; }
     display: block !important;
     margin: 0 auto !important;
 }
+
 @media (min-width: 769px) {
     .profil-container {
         display: flex !important;
@@ -803,24 +801,16 @@ ul { list-style: none; }
         align-items: center !important;
         gap: 30px !important;
         padding: 20px 0 !important;
-    } /* Ferme .profil-container */
-} /* Ferme @media (min-width: 769px) */
-
-/* TOUT LE RESTE VIENT ENSUITE (ex: .video-grid, .toast, etc.) */
-.video-grid {
-    display: grid;
-    /* ... vos propriétés ... */
+    }
 }
 
 .video-grid {
     display: grid;
-    /* On change 250px par 280px pour que les cartes ne soient pas trop serrées */
-    /* On utilise 1fr pour que les colonnes prennent tout l'espace restant */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px; 
     width: 100%;
-    max-width: 1200px; /* Limite la largeur max de la grille */
-    margin: 0 auto;    /* Centre la grille au milieu de la page */
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -860,68 +850,46 @@ ul { list-style: none; }
     color: white;
 }
 
+/* ========================================
+   Notification Toast (Unique et Stable)
+======================================== */
 .toast {
-    position: fixed;
-    bottom: 20px;    /* S'assure qu'il est bien en bas */
-    right: 20px;     /* S'assure qu'il est bien à droite */
-    z-index: 9999;   /* S'assure qu'il passe au-dessus de tout */
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
     opacity: 0;
     visibility: hidden;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    transition: all 0.5s ease-in-out;
-    width: 300px;
+    background: white !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    transition: all 0.5s ease-in-out !important;
+    width: 300px !important;
     pointer-events: none;
-    /* Important pour mobile : */
-    max-width: 90vw; 
-}
-
-/* Version mobile : on ajuste la position */
-@media (max-width: 480px) {
-    .toast {
-        bottom: 10px;
-        right: 10px;
-        left: 10px;    /* S'étire un peu pour être plus lisible */
-        width: auto;   /* Annule la largeur fixe */
-    }
-
-.toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: all 0.5s ease-in-out;
-    width: 300px;
 }
 
 .toast.show {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 .toast button {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
+    position: absolute !important;
+    top: 5px !important;
+    right: 10px !important;
+    background: none !important;
+    border: none !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
 }
 
-/* --- ADAPTATION MOBILE --- */
+/* Version responsive spécifique pour le toast en mobile */
 @media (max-width: 768px) {
     .toast {
-        left: 20px;
-        right: 20px;
-        width: auto;
+        left: 20px !important;
+        right: 20px !important;
+        width: auto !important;
     }
 }

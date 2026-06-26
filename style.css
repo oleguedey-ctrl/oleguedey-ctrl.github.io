@@ -886,14 +886,12 @@ ul { list-style: none; }
         left: 10px;    /* S'étire un peu pour être plus lisible */
         width: auto;   /* Annule la largeur fixe */
     }
-/* --- TOAST NOTIFICATION CORRIGÉE ET RESPONSIVE --- */
+
 .toast {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    left: 20px !important; /* Ajouté pour le mobile */
-    top: auto !important;   /* Force l'annulation de tout positionnement en haut */
-    z-index: 9999 !important;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
     opacity: 0;
     visibility: hidden;
     background: white;
@@ -901,72 +899,29 @@ ul { list-style: none; }
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transition: all 0.5s ease-in-out;
-    pointer-events: none;
-    width: auto !important;
+    width: 300px;
 }
 
 .toast.show {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
-}
-
-.toast p {
-    margin: 0 0 15px 0;
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-}
-
-.toast-btn {
-    display: block;
-    padding: 10px;
-    background: #0047AB;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
 }
 
 .toast button {
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 10px;
     background: none;
     border: none;
     font-size: 18px;
     cursor: pointer;
-    color: #999;
 }
 
-.toast button:hover {
-    color: #333;
-} /* <--- NE PAS OUBLIER CETTE ACCOLADE */
-
-/* --- CORRECTION UNIQUE POUR ORDINATEUR --- */
-@media (min-width: 769px) {
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 768px) {
     .toast {
-        left: auto !important;
-        right: 20px !important;
-        width: 320px !important;
-        /* On ne met pas d'opacity: 0 ici, sinon le toast ne s'affichera jamais ! */
-        visibility: visible !important;
-        pointer-events: auto !important;
-    }
-}
-    
-    .toast.show {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    @media (min-width: 769px) {
-    .toast {
-        left: auto !important;
-        right: 20px !important;
-        width: 320px !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
+        left: 20px;
+        right: 20px;
+        width: auto;
     }
 }

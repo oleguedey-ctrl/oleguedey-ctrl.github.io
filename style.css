@@ -953,6 +953,7 @@ ul { list-style: none; }
         right: 20px !important;
         left: auto !important; /* Important : annule le left: 20px mobile */
         pointer-events: auto !important;
+        }
     }
     
     .toast.show {

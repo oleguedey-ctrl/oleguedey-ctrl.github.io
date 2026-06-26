@@ -806,13 +806,14 @@ ul { list-style: none; }
     }
 }
 
+/* --- GRILLE VIDÉO PROPRE --- */
 .video-grid {
     display: grid;
+    /* Cela permet d'avoir 4 colonnes sur grand écran et de réduire si nécessaire */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     box-sizing: border-box;
-}
 
 .video-card {
     text-decoration: none;

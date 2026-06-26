@@ -959,4 +959,16 @@ ul { list-style: none; }
         opacity: 1 !important;
         visibility: visible !important;
     }
+    
+    /* --- CORRECTION UNIQUEMENT POUR ORDINATEUR --- */
+@media (min-width: 769px) {
+    .toast {
+        left: auto !important;   /* Annule l'étirement mobile */
+        right: 20px !important;  /* Fixe à droite */
+        width: 320px !important; /* Donne une taille fixe sur PC */
+        opacity: 0;              /* On laisse 0 pour le JS */
+        visibility: visible !important; /* Force la visibilité sur PC */
+        pointer-events: auto !important;
+    }
+}
 }

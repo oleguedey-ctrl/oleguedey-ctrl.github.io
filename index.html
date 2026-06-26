@@ -33,6 +33,24 @@
         </div>
     </nav>
 
+    <!-- Le bloc de la notification -->
+<div id="toast-notif" class="toast">
+    <p>Besoin de mon CV ?</p>
+    <a href="ton-cv.pdf" target="_blank" class="toast-btn">Télécharger</a>
+    <button onclick="closeToast()">✕</button>
+</div>
+
+<!-- Le script qui fait fonctionner la notif -->
+<script>
+    setTimeout(() => {
+        document.getElementById('toast-notif').classList.add('show');
+    }, 3000);
+
+    function closeToast() {
+        document.getElementById('toast-notif').classList.remove('show');
+    }
+</script>
+    
     <!-- Hero Section avec Vidéo de fond -->
     <header class="hero" id="accueil">
         <!-- Vidéo en arrière plan -->

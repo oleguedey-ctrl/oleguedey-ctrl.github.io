@@ -851,7 +851,7 @@ ul { list-style: none; }
 }
 
 /* ========================================
-   Notification Toast (Unique et Stable)
+   Notification Toast (Version "Jolie Notif")
 ======================================== */
 .toast {
     position: fixed !important;
@@ -860,32 +860,61 @@ ul { list-style: none; }
     z-index: 9999 !important;
     opacity: 0;
     visibility: hidden;
-    background: white !important;
-    padding: 20px !important;
+    background: var(--white) !important;
+    padding: 24px 20px !important;
     border-radius: 12px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
-    transition: all 0.5s ease-in-out !important;
-    width: 300px !important;
+    
+    /* Ombre plus diffuse et design */
+    box-shadow: 0 15px 40px -10px rgba(15, 23, 42, 0.2) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    
+    /* Petit liseré de couleur sur la gauche */
+    border-left: 5px solid var(--primary) !important;
+    
+    /* On la cache un peu plus bas et légèrement rétrécie pour l'animation */
+    transform: translateY(40px) scale(0.95) !important;
+    
+    /* Animation fluide avec un effet de léger rebond (cubic-bezier) */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    width: 320px !important;
     pointer-events: none;
 }
 
 .toast.show {
     opacity: 1 !important;
     visibility: visible !important;
+    /* Elle reprend sa position et sa taille normale */
+    transform: translateY(0) scale(1) !important;
     pointer-events: auto !important;
 }
 
+/* Le bouton de fermeture modernisé */
 .toast button {
     position: absolute !important;
-    top: 5px !important;
-    right: 10px !important;
-    background: none !important;
+    top: 12px !important;
+    right: 12px !important;
+    background: rgba(0, 0, 0, 0.04) !important;
     border: none !important;
-    font-size: 18px !important;
+    border-radius: 50% !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    color: var(--gray) !important;
     cursor: pointer !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Version responsive spécifique pour le toast en mobile */
+.toast button:hover {
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: var(--dark) !important;
+    /* Petit effet de rotation stylé au survol de la souris */
+    transform: rotate(90deg) !important; 
+}
+
+/* Responsive mobile */
 @media (max-width: 768px) {
     .toast {
         left: 20px !important;

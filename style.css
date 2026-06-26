@@ -942,4 +942,24 @@ ul { list-style: none; }
 
 .toast button:hover {
     color: #333;
+
+    /* Force l'affichage sur TOUS les écrans, sans exception */
+@media (min-width: 769px) {
+    .toast {
+        display: flex !important; /* Force l'affichage */
+        visibility: visible !important;
+        opacity: 0; /* On garde 0 pour l'animation, mais on prépare le terrain */
+        bottom: 20px !important;
+        right: 20px !important;
+        left: auto !important; /* Important : annule le left: 20px mobile */
+        pointer-events: auto !important;
+    }
+    
+    .toast.show {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
 }
+}
+
+    

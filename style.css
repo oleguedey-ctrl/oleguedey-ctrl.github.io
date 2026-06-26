@@ -961,27 +961,12 @@ ul { list-style: none; }
         visibility: visible !important;
     }
     
-    /* --- CORRECTION UNIQUEMENT POUR ORDINATEUR --- */
-@media (min-width: 769px) {
+    @media (min-width: 769px) {
     .toast {
-        left: auto !important;   /* Annule l'étirement mobile */
-        right: 20px !important;  /* Fixe à droite */
-        width: 320px !important; /* Donne une taille fixe sur PC */
-        opacity: 0;              /* On laisse 0 pour le JS */
-        visibility: visible !important; /* Force la visibilité sur PC */
+        left: auto !important;
+        right: 20px !important;
+        width: 320px !important;
+        visibility: visible !important;
         pointer-events: auto !important;
     }
-}
-
-    /* TEST ULTIME - À AJOUTER EN TOUT DERNIER DANS LE CSS */
-#toast-notif {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    background: red !important; /* On met un fond rouge pour être SÛR de le voir */
-    z-index: 999999 !important;
-    position: fixed !important;
-    bottom: 50px !important;
-    right: 50px !important;
-    pointer-events: auto !important;
 }

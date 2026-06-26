@@ -852,7 +852,7 @@ ul { list-style: none; }
 /* --- STYLE DU POP-UP CV (TOAST) --- */
 .toast {
     position: fixed;
-    top: 80px;
+    bottom: 20px;   /* <--- Modifié ici pour le placer en bas */
     right: -350px;
     background: white;
     padding: 20px;

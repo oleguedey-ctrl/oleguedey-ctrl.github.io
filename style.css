@@ -855,18 +855,30 @@ ul { list-style: none; }
 
 .toast {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 20px;    /* S'assure qu'il est bien en bas */
+    right: 20px;     /* S'assure qu'il est bien à droite */
+    z-index: 9999;   /* S'assure qu'il passe au-dessus de tout */
     opacity: 0;
     visibility: hidden;
     background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    z-index: 9999;
     transition: all 0.5s ease-in-out;
     width: 300px;
     pointer-events: none;
+    /* Important pour mobile : */
+    max-width: 90vw; 
+}
+
+/* Version mobile : on ajuste la position */
+@media (max-width: 480px) {
+    .toast {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;    /* S'étire un peu pour être plus lisible */
+        width: auto;   /* Annule la largeur fixe */
+    }
 }
 
 .toast.show {

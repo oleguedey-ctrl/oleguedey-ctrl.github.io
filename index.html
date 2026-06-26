@@ -39,14 +39,17 @@
     <button onclick="closeToast()">✕</button>
 </div>
 
-<!-- Le script qui fait fonctionner la notif -->
 <script>
-    setTimeout(() => {
-        document.getElementById('toast-notif').classList.add('show');
-    }, 3000);
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(() => {
+            const toast = document.getElementById('toast-notif');
+            if (toast) toast.classList.add('show');
+        }, 3000);
+    });
 
     function closeToast() {
-        document.getElementById('toast-notif').classList.remove('show');
+        const toast = document.getElementById('toast-notif');
+        if (toast) toast.classList.remove('show');
     }
 </script>
     

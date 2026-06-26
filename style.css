@@ -803,6 +803,13 @@ ul { list-style: none; }
         align-items: center !important;
         gap: 30px !important;
         padding: 20px 0 !important;
+    } /* Ferme .profil-container */
+} /* Ferme @media (min-width: 769px) */
+
+/* TOUT LE RESTE VIENT ENSUITE (ex: .video-grid, .toast, etc.) */
+.video-grid {
+    display: grid;
+    /* ... vos propriétés ... */
 }
 
 .video-grid {

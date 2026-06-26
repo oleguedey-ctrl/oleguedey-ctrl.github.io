@@ -850,21 +850,28 @@ ul { list-style: none; }
     color: white;
 }
 
-/* --- STYLE DU POP-UP CV (TOAST) --- */
 .toast {
     position: fixed;
-    bottom: 20px;   /* <--- Modifié ici pour le placer en bas */
-    right: -350px;
+    bottom: 20px;
+    right: 20px; /* On commence par le cacher en jouant sur l'opacité */
+    opacity: 0;
+    visibility: hidden;
     background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    z-index: 1000;
-    transition: right 0.5s ease-in-out;
+    z-index: 9999;
+    transition: all 0.5s ease-in-out;
     width: 300px;
+    pointer-events: none; /* Empêche de cliquer dessus quand il est caché */
 }
 
-.toast.show { right: 20px; }
+/* Quand la classe .show est ajoutée par le JS */
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
 
 .toast p {
     margin: 0 0 15px 0;

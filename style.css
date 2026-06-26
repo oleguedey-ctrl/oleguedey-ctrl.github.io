@@ -795,62 +795,17 @@ ul { list-style: none; }
     display: block !important;
     margin: 0 auto !important;
 }
-
 @media (min-width: 769px) {
     .profil-container {
         display: flex !important;
-        flex-direction: column !important; /* Force la colonne si tu veux la photo au-dessus du texte */
-        justify-content: center !important; /* Centre verticalement */
-        align-items: center !important;     /* Centre horizontalement */
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
         gap: 30px !important;
-        padding: 20px 0 !important;         /* Ajoute un peu d'air en haut et en bas */
+        padding: 20px 0 !important;
     }
-   /* Grille pour aligner les vidéos */
-.video-grid {
-    display: grid;
-    /* Crée des colonnes d'au moins 300px, elles se répartissent l'espace */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding-top: 20px;
 }
 
-/* Style des liens vidéos */
-.video-card {
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-.video-card:hover {
-    transform: scale(1.03); /* Effet léger au survol */
-}
-
-/* Format des images en horizontal (16/9) */
-.video-card img {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* Force le format paysage */
-    object-fit: cover;    /* Recadre pour remplir le rectangle sans déformer */
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-   /* --- SÉCURITÉ ET RESPONSIVE DES VIDÉOS --- */
-
-/* 1. On s'assure que le conteneur ne déborde pas */
-#videos {
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden; 
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.profil-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-/* 2. La grille sécurisée (remplace l'ancienne si elle existait) */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -859,7 +814,6 @@ ul { list-style: none; }
     box-sizing: border-box;
 }
 
-/* 3. Les cartes vidéos */
 .video-card {
     text-decoration: none;
     transition: transform 0.3s ease;
@@ -876,15 +830,16 @@ ul { list-style: none; }
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    display: block; /* Important pour éviter les marges invisibles */
-    /* Style du bouton CV dans la navbar */
+    display: block;
+}
+
 .btn-cv {
-    margin-left: 20px; /* Espace le bouton du logo */
+    margin-left: 20px;
     padding: 8px 16px;
-    border: 1px solid #3b82f6; /* Remplace cette couleur par celle de ton gradient */
+    border: 1px solid #3b82f6;
     border-radius: 20px;
     text-decoration: none;
-    color: #3b82f6; /* Couleur du texte */
+    color: #3b82f6;
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -892,28 +847,24 @@ ul { list-style: none; }
 .btn-cv:hover {
     background-color: #3b82f6;
     color: white;
-    /* --- STYLE DU POP-UP CV (TOAST) --- */
+}
 
-/* 1. Positionnement fixe et design du bloc */
+/* --- STYLE DU POP-UP CV (TOAST) --- */
 .toast {
     position: fixed;
-    top: 80px; /* Position sous la navbar */
-    right: -350px; /* Caché par défaut à droite de l'écran */
+    top: 80px;
+    right: -350px;
     background: white;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Ombre douce pour le relief */
-    z-index: 1000; /* Passe au-dessus de tout le reste */
-    transition: right 0.5s ease-in-out; /* Animation fluide */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: right 0.5s ease-in-out;
     width: 300px;
 }
 
-/* 2. Classe ajoutée par le JS pour le faire apparaître */
-.toast.show {
-    right: 20px; /* Aligné à 20px du bord droit */
-}
+.toast.show { right: 20px; }
 
-/* 3. Style du texte */
 .toast p {
     margin: 0 0 15px 0;
     font-size: 16px;
@@ -921,25 +872,19 @@ ul { list-style: none; }
     color: #333;
 }
 
-/* 4. Style du bouton de téléchargement */
 .toast-btn {
     display: inline-block;
     padding: 10px 20px;
-    background: #0047AB; /* Bleu pro (à ajuster selon ton bleu) */
+    background: #0047AB;
     color: white;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
-    width: 100%; /* Le bouton prend toute la largeur */
+    width: 100%;
     text-align: center;
     transition: background 0.3s ease;
 }
 
-.toast-btn:hover {
-    background: #003380; /* Bleu plus foncé au survol */
-}
-
-/* 5. Style du bouton de fermeture '✕' */
 .toast button {
     position: absolute;
     top: 10px;
@@ -950,7 +895,6 @@ ul { list-style: none; }
     cursor: pointer;
     color: #999;
 }
-
 .toast button:hover {
     color: #333;
 }

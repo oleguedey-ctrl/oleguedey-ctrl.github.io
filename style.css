@@ -804,16 +804,15 @@ ul { list-style: none; }
         gap: 30px !important;
         padding: 20px 0 !important;
     }
-}
 
 /* --- GRILLE VIDÉO PROPRE --- */
 .video-grid {
     display: grid;
-    /* Cela permet d'avoir 4 colonnes sur grand écran et de réduire si nécessaire */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     box-sizing: border-box;
+} /* <--- C'était cette accolade qui manquait ! */
 
 .video-card {
     text-decoration: none;
@@ -853,7 +852,7 @@ ul { list-style: none; }
 .toast {
     position: fixed;
     bottom: 20px;
-    right: 20px; /* On commence par le cacher en jouant sur l'opacité */
+    right: 20px;
     opacity: 0;
     visibility: hidden;
     background: white;
@@ -863,10 +862,9 @@ ul { list-style: none; }
     z-index: 9999;
     transition: all 0.5s ease-in-out;
     width: 300px;
-    pointer-events: none; /* Empêche de cliquer dessus quand il est caché */
+    pointer-events: none;
 }
 
-/* Quand la classe .show est ajoutée par le JS */
 .toast.show {
     opacity: 1;
     visibility: visible;
@@ -903,6 +901,7 @@ ul { list-style: none; }
     cursor: pointer;
     color: #999;
 }
+
 .toast button:hover {
     color: #333;
 }

@@ -892,4 +892,65 @@ ul { list-style: none; }
 .btn-cv:hover {
     background-color: #3b82f6;
     color: white;
+    /* --- STYLE DU POP-UP CV (TOAST) --- */
+
+/* 1. Positionnement fixe et design du bloc */
+.toast {
+    position: fixed;
+    top: 80px; /* Position sous la navbar */
+    right: -350px; /* Caché par défaut à droite de l'écran */
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Ombre douce pour le relief */
+    z-index: 1000; /* Passe au-dessus de tout le reste */
+    transition: right 0.5s ease-in-out; /* Animation fluide */
+    width: 300px;
+}
+
+/* 2. Classe ajoutée par le JS pour le faire apparaître */
+.toast.show {
+    right: 20px; /* Aligné à 20px du bord droit */
+}
+
+/* 3. Style du texte */
+.toast p {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* 4. Style du bouton de téléchargement */
+.toast-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0047AB; /* Bleu pro (à ajuster selon ton bleu) */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 100%; /* Le bouton prend toute la largeur */
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.toast-btn:hover {
+    background: #003380; /* Bleu plus foncé au survol */
+}
+
+/* 5. Style du bouton de fermeture '✕' */
+.toast button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #999;
+}
+
+.toast button:hover {
+    color: #333;
 }

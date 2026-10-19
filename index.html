@@ -156,28 +156,22 @@ h1,h2,h3,p{margin:0}
   radial-gradient(34% 40% at 62% 42%,rgba(110,70,255,.32),transparent 70%),
   radial-gradient(30% 40% at 92% 78%,rgba(255,140,60,.22),transparent 70%)}
 .tour .head{padding-left:var(--gx);padding-right:var(--gy);max-width:1320px;margin-inline:auto}
-.track{display:flex;gap:20px;padding-left:var(--gx);padding-right:var(--gy);padding-bottom:clamp(60px,8vw,110px);width:max-content}
-.date{width:min(78vw,620px);flex:none;background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow);border-radius:28px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:22px;min-height:560px;position:relative;overflow:hidden}
-.date.now{background:linear-gradient(140deg,rgba(242,41,91,.92),rgba(242,41,91,.62));color:#fff}
-.date .yrs{font-family:var(--f-poster);font-weight:900;font-size:clamp(70px,9vw,130px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px currentColor;color:transparent}
-.date .yrs{-webkit-text-stroke-color:var(--bone)}
-.date.now .yrs{-webkit-text-stroke-color:#fff}
-.date .badge{position:absolute;top:clamp(24px,3vw,40px);right:clamp(24px,3vw,40px);font-weight:700;font-size:13px;letter-spacing:.06em;background:var(--night);color:#fff;padding:6px 12px;border-radius:999px;display:flex;align-items:center;gap:8px}
-.date .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--spot);animation:pulse 1.6s infinite}
-.date h3{font-family:var(--f-poster);font-weight:900;text-transform:uppercase;font-size:clamp(32px,3.4vw,46px);line-height:.92}
-.date .venue{font-family:var(--f-serif);font-style:italic;font-size:26px;line-height:1.1;margin-top:6px;opacity:.85}
-.date ul{list-style:none;margin:auto 0 0;padding:18px 0 0;border-top:1px solid currentColor;border-color:rgba(255,255,255,.2);display:grid;gap:8px;font-size:15.5px}
-.date li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:8px;opacity:.88}
-.date li::before{content:"";width:6px;height:6px;margin-top:.62em;background:currentColor;transform:rotate(45deg)}
-.date.now li{opacity:1}
-.date.end{justify-content:center;align-items:flex-start}
-.date.end p{font-family:var(--f-poster);font-weight:900;text-transform:uppercase;font-size:clamp(48px,6vw,88px);line-height:.88}
-.date.end p .serif{display:block;color:var(--spot);font-size:.6em;margin-top:.2em}
-.date.end a{margin-top:28px}
-@media (max-width:899px){
-  .track{flex-direction:column;width:auto}
-  .date{width:100%;min-height:0}
-}
+.timeline{position:relative;max-width:1320px;margin-inline:auto;padding-left:var(--gx);padding-right:var(--gy);padding-bottom:clamp(80px,10vw,140px);display:grid;gap:18px}
+.job{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1.25fr);gap:20px 40px;align-items:start;padding:clamp(24px,3vw,36px);border-radius:28px;
+  background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow)}
+.job.now{background:linear-gradient(140deg,rgba(242,41,91,.9),rgba(242,41,91,.6));color:#fff}
+.job .yrs{font-family:var(--f-poster);font-weight:900;font-size:clamp(40px,4.4vw,60px);line-height:.85;font-variant-numeric:tabular-nums}
+.job .yrs small{display:block;font-family:var(--f-body);font-weight:600;font-size:14px;margin-top:10px;opacity:.75}
+.job h3{font-family:var(--f-poster);font-weight:900;text-transform:uppercase;font-size:clamp(28px,2.8vw,38px);line-height:.95}
+.job .venue{font-family:var(--f-serif);font-style:italic;font-size:24px;line-height:1.15;margin-top:8px;opacity:.9}
+.job .badge{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:700;font-size:12px;letter-spacing:.06em;background:var(--night);color:#fff;padding:6px 12px;border-radius:999px}
+.job .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--spot);animation:pulse 1.6s infinite}
+.job ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:16px}
+.job li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:8px;opacity:.9}
+.job li::before{content:"";width:6px;height:6px;margin-top:.62em;background:currentColor;transform:rotate(45deg)}
+.job.now li{opacity:1}
+@media (max-width:980px){.job{grid-template-columns:110px minmax(0,1fr)}.job ul{grid-column:2}}
+@media (max-width:600px){.job{grid-template-columns:1fr;gap:16px}.job ul{grid-column:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.2)}.job .yrs small{display:inline;margin:0 0 0 10px}}
 
 /* Setlist vidéos */
 .setlist{padding-block:clamp(80px,10vw,140px);border-top:1px solid var(--rule)}
@@ -335,57 +329,53 @@ h1,h2,h3,p{margin:0}
 <section class="tour" id="tournee">
   <div class="head">
     <h2>Expérience professionnelle</h2>
-    <p>Plus de 9 ans de parcours, de la radio à la communication nationale.</p>
+    <p>Plus de 9 ans de parcours, du plus récent au plus ancien.</p>
   </div>
-  <div class="track" id="track">
-    <article class="date now">
-      <span class="badge">EN POSTE</span>
-      <div class="yrs">2024+</div>
-      <div><h3>Responsable Communication &amp; Événementiel</h3><div class="venue">Afdas</div></div>
+  <div class="timeline">
+    <article class="job now">
+      <div class="yrs">2024<small>à aujourd'hui</small></div>
+      <div><h3>Responsable Communication &amp; Événementiel</h3><div class="venue">Afdas</div><span class="badge">EN POSTE</span></div>
       <ul>
         <li>Pilotage de la stratégie de communication nationale</li>
-        <li>Coordination d'une équipe communication, digital, vidéo, graphisme et événementiel</li>
-        <li>Lancement de la plateforme OSE</li>
-        <li>Pilotage du studio TV interne, de la conception à la diffusion</li>
-        <li>Événements nationaux : conférences, salons, webinaires</li>
-        <li>Plus de 360 000 impressions LinkedIn en 2025</li>
+        <li>Coordination d'une équipe pluridisciplinaire : communication, digital, vidéo, graphisme et événementiel</li>
+        <li>Lancement de la plateforme OSE, dédiée à l'orientation et à l'information sur les métiers</li>
+        <li>Pilotage du studio TV interne : conception, tournage et diffusion de contenus vidéo</li>
+        <li>Organisation d'événements nationaux : conférences, salons, webinaires</li>
+        <li>Gestion de la ligne éditoriale et des réseaux sociaux</li>
+        <li>Production de contenus à forte visibilité : plus de 360 000 impressions LinkedIn en 2025</li>
       </ul>
     </article>
-    <article class="date">
-      <div class="yrs">2023</div>
+    <article class="job">
+      <div class="yrs">2023<small>à 2024</small></div>
       <div><h3>Responsable Communication</h3><div class="venue">Groupe des Instituts Médicaux</div></div>
       <ul>
-        <li>Stratégie de communication des marques du groupe</li>
-        <li>Réseaux sociaux et création de contenus</li>
+        <li>Création de la stratégie de communication des marques du groupe</li>
+        <li>Gestion des réseaux sociaux et création de contenus attractifs</li>
         <li>Organisation de congrès et d'événements médicaux</li>
         <li>Réalisation et montage de podcasts</li>
         <li>Lancement de la marque Institut Médical de la Peau</li>
       </ul>
     </article>
-    <article class="date">
-      <div class="yrs">2022</div>
+    <article class="job">
+      <div class="yrs">2022<small>à 2023</small></div>
       <div><h3>Community Manager Senior</h3><div class="venue">Groupe IKIGAI Education</div></div>
       <ul>
-        <li>Stratégie digitale orientée génération de leads</li>
-        <li>Animation des communautés au quotidien</li>
-        <li>Publications, visuels, vidéos, stories, jeux</li>
-        <li>Lives Facebook et YouTube avec Streamyard</li>
-        <li>Analyse et optimisation des campagnes</li>
+        <li>Définition et mise en œuvre de la stratégie digitale pour générer des leads</li>
+        <li>Animation des communautés et gestion quotidienne des interactions</li>
+        <li>Création de contenus variés : publications, visuels, vidéos, stories, jeux</li>
+        <li>Réalisation de lives Facebook et YouTube avec Streamyard</li>
+        <li>Analyse des performances et optimisation des campagnes</li>
       </ul>
     </article>
-    <article class="date">
-      <div class="yrs">2015</div>
+    <article class="job">
+      <div class="yrs">2015<small>à 2022</small></div>
       <div><h3>Community Manager</h3><div class="venue">Groupe NRJ, Nostalgie</div></div>
       <ul>
-        <li>Réseaux sociaux de Nostalgie et de la matinale</li>
-        <li>Stratégie digitale et création de contenus</li>
-        <li>Vidéos en direct avec OBS Studio</li>
-        <li>Reporting hebdomadaire des performances</li>
+        <li>Gestion des réseaux sociaux de Nostalgie et de la matinale</li>
+        <li>Planification de la stratégie digitale et création de contenus</li>
+        <li>Réalisation de vidéos en direct avec OBS Studio</li>
+        <li>Reporting et analyse des performances hebdomadaires</li>
       </ul>
-    </article>
-    <article class="date end">
-      <p>Votre prochain<span class="serif">projet ?</span></p>
-      <a class="pill hot" href="#contact">Me contacter</a>
     </article>
   </div>
 </section>
@@ -601,18 +591,9 @@ h1,h2,h3,p{margin:0}
       scrollTrigger: { trigger: el, start: 'top 85%' } });
   });
 
-  // Tournée : défilement horizontal épinglé (desktop)
-  var mm = gsap.matchMedia();
-  mm.add('(min-width: 900px)', function(){
-    var track = document.getElementById('track');
-    var dist = function(){ return track.scrollWidth - innerWidth };
-    gsap.to(track, { x: function(){ return -dist() }, ease: 'none',
-      scrollTrigger: { trigger: '.tour', start: 'top top', end: function(){ return '+=' + dist() }, pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1 } });
-  });
-  mm.add('(max-width: 899px)', function(){
-    gsap.utils.toArray('.date').forEach(function(d){
-      gsap.from(d, { y: 60, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: d, start: 'top 90%' } });
-    });
+  // Expérience : chaque poste apparaît simplement
+  gsap.utils.toArray('.job').forEach(function(d){
+    gsap.from(d, { y: 50, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: d, start: 'top 88%' } });
   });
 
   // Setlist : parallaxe décalée

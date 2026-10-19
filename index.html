@@ -16,6 +16,9 @@
 :root{
   --night:#0C0B0D; --stage:#161418; --bone:#EFE9DF; --smoke:#9A939A; --rule:rgba(239,233,223,.14);
   --spot:#F2295B;
+  --glass:linear-gradient(140deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 45%,rgba(255,255,255,.08) 100%);
+  --glass-edge:rgba(255,255,255,.22);
+  --glass-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(255,255,255,.06),inset 0 0 24px rgba(255,255,255,.04),0 18px 50px rgba(0,0,0,.4);
   --f-poster:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
   --f-serif:"Instrument Serif",Georgia,serif;
   --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -43,6 +46,10 @@ h1,h2,h3,p{margin:0}
   animation:grain 1s steps(6) infinite}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
 
+/* Verre */
+.glass{position:relative;background:var(--glass);-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(120% 60% at 20% 0%,rgba(255,255,255,.18),transparent 55%)}
+
 /* Curseur */
 .cursor{position:fixed;left:0;top:0;z-index:100;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--spot);mix-blend-mode:difference;display:grid;place-items:center;transition:width .35s cubic-bezier(.2,.8,.2,1),height .35s cubic-bezier(.2,.8,.2,1),margin .35s cubic-bezier(.2,.8,.2,1),background .3s}
 .cursor span{font:700 13px var(--f-body);color:#fff;opacity:0;transition:opacity .2s;letter-spacing:.04em}
@@ -51,23 +58,34 @@ h1,h2,h3,p{margin:0}
 .cursor.play span{opacity:1}
 @media (hover:none),(pointer:coarse){.cursor{display:none}}
 
-/* Intro */
-.loader{position:fixed;inset:0;z-index:95;background:var(--spot);color:var(--night);display:flex;flex-direction:column;justify-content:space-between;padding:calc(24px + env(safe-area-inset-top,0px)) var(--gy) calc(24px + env(safe-area-inset-bottom,0px)) var(--gx)}
-.loader .l-top{display:flex;justify-content:space-between;font-weight:600;font-size:15px}
-.loader .count{font-family:var(--f-poster);font-weight:900;font-size:clamp(120px,26vw,380px);line-height:.8;font-variant-numeric:tabular-nums}
-.no-js .loader{display:none}
 
 /* En-tête */
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:61;background:var(--night)}
-.top{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:60;mix-blend-mode:difference;color:#fff}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px;max-width:none}
+.top{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 14px);z-index:60;color:var(--bone);padding-left:var(--gx);padding-right:var(--gy)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:60px;max-width:1120px;border-radius:999px;padding-left:24px;padding-right:8px}
 .brand{font-family:var(--f-poster);font-weight:900;font-size:24px;letter-spacing:.02em;text-transform:uppercase}
-.menu{display:flex;gap:28px;font-size:15px;font-weight:500}
-.menu a{position:relative}
-.menu a::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:1.5px;background:currentColor;transition:right .35s cubic-bezier(.2,.8,.2,1)}
-.menu a:hover::after{right:0}
-.cv-link{font-weight:600;font-size:15px;border:1.5px solid currentColor;border-radius:999px;padding:8px 16px}
-@media (max-width:860px){.menu{display:none}}
+.menu{display:flex;gap:4px;font-size:15px;font-weight:500}
+.menu a{position:relative;padding:8px 14px;border-radius:999px;transition:background .3s,color .3s;color:rgba(239,233,223,.8)}
+.menu a:hover{color:var(--bone)}
+.menu a.on{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.cv-link{font-weight:600;font-size:15px;border-radius:999px;padding:10px 18px;background:var(--spot);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--glass-edge);background:rgba(255,255,255,.1);color:var(--bone);cursor:pointer;place-items:center}
+.burger span{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.top.open .burger span{background:transparent}
+.top.open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.top.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.right{display:flex;align-items:center;gap:8px}
+@media (max-width:960px){
+  .burger{display:grid}
+  .top .wrap{padding-left:20px}
+  .menu{position:absolute;left:0;right:0;top:calc(100% + 10px);flex-direction:column;gap:2px;padding:10px;border-radius:26px;
+    background:linear-gradient(140deg,rgba(38,34,42,.97),rgba(20,18,22,.95));-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);
+    border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow);
+    opacity:0;transform:translateY(-10px) scale(.98);pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1);visibility:hidden}
+  .menu a{font-family:var(--f-poster);font-weight:700;text-transform:uppercase;font-size:28px;padding:12px 18px;border-radius:18px}
+  .top.open .menu{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+}
 
 /* Hero */
 .hero{position:relative;height:100vh;height:100svh;min-height:560px}
@@ -82,8 +100,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero h1{font-weight:900;font-size:clamp(40px,7.2vw,112px);overflow:hidden;padding-bottom:.04em}
 .hero h1 .ln{display:block}
 .hero .role{font-family:var(--f-serif);font-style:italic;font-size:clamp(26px,3.6vw,52px);line-height:1.05;margin-top:14px;color:var(--bone)}
-.hero-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:40px;padding-top:20px;border-top:1px solid var(--rule)}
-.hero-base p{max-width:44ch;color:var(--smoke)}
+.hero-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;margin-top:36px;padding:20px 26px;border-radius:22px}
+.hero-base p{max-width:52ch;color:rgba(239,233,223,.78)}
 .hero-base p b{color:var(--bone);font-weight:600}
 .scroll-cue{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600}
 .scroll-cue span{display:block;width:1.5px;height:44px;background:var(--rule);position:relative;overflow:hidden}
@@ -132,11 +150,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:640px){.nums{grid-template-columns:1fr}.n:nth-child(even){padding-left:0;border-left:0}}
 
 /* Tournée (parcours horizontal) */
-.tour{position:relative;padding-top:clamp(80px,10vw,140px);overflow:hidden}
+.tour{position:relative;padding-top:clamp(80px,10vw,140px);overflow:hidden;isolation:isolate}
+.tour::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(38% 46% at 18% 68%,rgba(242,41,91,.45),transparent 70%),
+  radial-gradient(34% 40% at 62% 42%,rgba(110,70,255,.32),transparent 70%),
+  radial-gradient(30% 40% at 92% 78%,rgba(255,140,60,.22),transparent 70%)}
 .tour .head{padding-left:var(--gx);padding-right:var(--gy);max-width:1320px;margin-inline:auto}
 .track{display:flex;gap:20px;padding-left:var(--gx);padding-right:var(--gy);padding-bottom:clamp(60px,8vw,110px);width:max-content}
-.date{width:min(78vw,620px);flex:none;background:var(--stage);border:1px solid var(--rule);border-radius:6px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:22px;min-height:560px;position:relative;overflow:hidden}
-.date.now{background:var(--spot);color:#fff;border-color:transparent}
+.date{width:min(78vw,620px);flex:none;background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow);border-radius:28px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:22px;min-height:560px;position:relative;overflow:hidden}
+.date.now{background:linear-gradient(140deg,rgba(242,41,91,.92),rgba(242,41,91,.62));color:#fff}
 .date .yrs{font-family:var(--f-poster);font-weight:900;font-size:clamp(70px,9vw,130px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px currentColor;color:transparent}
 .date .yrs{-webkit-text-stroke-color:var(--bone)}
 .date.now .yrs{-webkit-text-stroke-color:#fff}
@@ -148,7 +170,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .date li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:8px;opacity:.88}
 .date li::before{content:"";width:6px;height:6px;margin-top:.62em;background:currentColor;transform:rotate(45deg)}
 .date.now li{opacity:1}
-.date.end{background:transparent;border-style:dashed;justify-content:center;align-items:flex-start}
+.date.end{justify-content:center;align-items:flex-start}
 .date.end p{font-family:var(--f-poster);font-weight:900;text-transform:uppercase;font-size:clamp(48px,6vw,88px);line-height:.88}
 .date.end p .serif{display:block;color:var(--spot);font-size:.6em;margin-top:.2em}
 .date.end a{margin-top:28px}
@@ -168,7 +190,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .clip{min-width:0}.clip .meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;margin-top:14px}
 .clip .meta b{font-family:var(--f-poster);font-weight:900;text-transform:uppercase;font-size:clamp(26px,2.4vw,34px);line-height:.9}
 .clip .meta span{font-size:14px;color:var(--smoke)}
-.clip .tagp{position:absolute;left:12px;top:12px;font-size:12px;font-weight:700;letter-spacing:.06em;background:rgba(12,11,13,.75);padding:5px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+.clip .tagp{position:absolute;left:12px;top:12px;font-size:12px;font-weight:700;letter-spacing:.04em;padding:6px 12px;border-radius:999px;background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
 @media (max-width:900px){.reel{grid-template-columns:repeat(2,minmax(0,1fr))}.clip:nth-child(even){margin-top:40px}}
 
 /* Backstage */
@@ -181,11 +203,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .skill-list li::after{content:"";width:12px;height:12px;flex:none;background:var(--spot);transform:rotate(45deg) scale(0);transition:transform .35s}
 .skill-list li:hover{padding-left:14px;color:var(--spot)}
 .skill-list li:hover::after{transform:rotate(45deg) scale(1)}
-.bs-side h3{font-family:var(--f-poster);font-weight:900;text-transform:uppercase;font-size:28px;margin-bottom:16px}
+.bs-title,.bs-side h3{font-family:var(--f-poster);font-weight:900;text-transform:uppercase;font-size:28px;margin-bottom:16px}
 .stickers{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:44px}
 .stickers span{font-weight:600;font-size:15px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--night);transition:background .25s,color .25s,transform .25s}
 .stickers span:hover{background:var(--night);color:var(--bone);transform:rotate(-3deg)}
-.pass{background:var(--night);color:var(--bone);border-radius:10px;padding:26px 26px 22px;position:relative;overflow:hidden}
+.pass{background:var(--night);color:var(--bone);border-radius:24px;box-shadow:0 30px 60px rgba(12,11,13,.25);padding:26px 26px 22px;position:relative;overflow:hidden}
 .pass::before{content:"";position:absolute;top:18px;left:50%;width:46px;height:8px;margin-left:-23px;border-radius:999px;background:var(--bone)}
 .pass .ph{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-bottom:14px;border-bottom:1px dashed var(--rule)}
 .pass .ph b{font-family:var(--f-poster);font-weight:900;font-size:30px;text-transform:uppercase;line-height:.9}
@@ -203,10 +225,19 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .mail{display:inline-flex;align-items:center;gap:18px;margin-top:clamp(36px,5vw,60px);font-family:var(--f-poster);font-weight:700;font-size:clamp(28px,4.4vw,64px);text-transform:lowercase;line-height:1;border-bottom:3px solid var(--spot);padding-bottom:8px;overflow-wrap:anywhere;max-width:100%}
 .mail:hover{color:var(--spot)}
 .c-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
-.pill{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:14px 22px;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--bone);cursor:pointer;font-family:var(--f-body);transition:background .25s,color .25s,border-color .25s}
+.pill{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:14px 22px;border-radius:999px;border:1px solid var(--glass-edge);background:var(--glass);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);box-shadow:inset 0 1px 0 rgba(255,255,255,.3);color:var(--bone);cursor:pointer;font-family:var(--f-body);transition:background .25s,color .25s,border-color .25s}
 .pill:hover{background:var(--bone);color:var(--night);border-color:var(--bone)}
 .pill.hot{background:var(--spot);border-color:var(--spot);color:#fff}
 .pill.hot:hover{background:var(--bone);color:var(--night);border-color:var(--bone)}
+.toast{position:fixed;z-index:80;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));width:min(340px,calc(100vw - 40px));border-radius:24px;padding:16px 16px 16px 18px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;color:var(--bone);background:linear-gradient(140deg,rgba(40,36,44,.62),rgba(20,18,22,.5));transform:translateY(140%);opacity:0;transition:transform .8s cubic-bezier(.2,.9,.2,1.1),opacity .5s}
+.toast.show{transform:none;opacity:1}
+.toast .ico{width:44px;height:44px;border-radius:14px;background:var(--spot);display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.toast .ico svg{width:20px;height:20px}
+.toast b{display:block;font-size:15px;font-weight:600;line-height:1.3}
+.toast a{display:inline-block;margin-top:4px;font-size:14px;font-weight:600;color:#fff;background:rgba(255,255,255,.14);border:1px solid var(--glass-edge);padding:5px 12px;border-radius:999px}
+.toast a:hover{background:#fff;color:var(--night)}
+.toast .x{align-self:start;width:28px;height:28px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:var(--bone);font-size:16px;line-height:1;cursor:pointer}
+.toast .x:hover{background:rgba(255,255,255,.22)}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:clamp(80px,10vw,140px);padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:var(--smoke)}
 
 @media (prefers-reduced-motion:reduce){
@@ -221,23 +252,22 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"><span>Play</span></div>
 
-<div class="loader" aria-hidden="true">
-  <div class="l-top"><span>Odran Leguedey</span><span>Paris, 2015 → 2026</span></div>
-  <div class="count"><span id="cnt">0</span></div>
-</div>
 
 <header class="top">
-  <div class="wrap">
+  <div class="wrap glass">
     <a class="brand" href="#hero">O.L.</a>
-    <nav class="menu" aria-label="Navigation">
+    <nav class="menu" id="menu" aria-label="Navigation">
       <a href="#manifeste">Profil</a>
-      <a href="#chiffres">Chiffres</a>
-      <a href="#tournee">Parcours</a>
+      <a href="#chiffres">Résultats</a>
       <a href="#setlist">Vidéos</a>
+      <a href="#tournee">Expérience</a>
       <a href="#backstage">Compétences</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="cv-link" href="https://oleguedey-ctrl.github.io/CV%20ODRAN%20LEGUEDEY.pdf" target="_blank" rel="noopener">CV PDF</a>
+    <div class="right">
+      <a class="cv-link" href="https://oleguedey-ctrl.github.io/CV%20ODRAN%20LEGUEDEY.pdf" target="_blank" rel="noopener">CV PDF</a>
+      <button class="burger" type="button" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -250,11 +280,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     </video>
   </div>
   <div class="wrap hero-inner">
-    <div class="hero-tag"><i></i>Sur scène depuis 2015</div>
+    <div class="hero-tag"><i></i>Paris &amp; Île-de-France</div>
     <h1 class="poster"><span class="ln">Odran Leguedey</span></h1>
     <p class="role">Responsable Communication &amp; Événementiel</p>
-    <div class="hero-base">
-      <p><b>9 ans</b> de contenus, de lives et d'événements nationaux. Aujourd'hui à l'Afdas, où je pilote la stratégie de communication et le studio TV.</p>
+    <div class="hero-base glass">
+      <p><b>+9 ans d'expérience</b> en stratégie de contenu, communication événementielle et valorisation d'image.</p>
       <div class="scroll-cue"><span></span>Faites défiler</div>
     </div>
   </div>
@@ -274,12 +304,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="photo-cap"><span>Odran Leguedey</span><span>Paris &amp; Île-de-France</span></div>
     </div>
     <div>
-      <p class="say" id="say">J'accompagne les organisations dans la valorisation de leur image et le déploiement de projets de communication à forte visibilité. Des idées, une équipe, une scène, et un public qui reste jusqu'au bout.</p>
+      <p class="say" id="say">J'accompagne les organisations dans la valorisation de leur image et le déploiement de projets de communication à forte visibilité.</p>
       <div class="traits">
-        <div><h3>Stratégie</h3><p>Lire les chiffres, comprendre les publics et construire un plan qui frappe juste.</p></div>
-        <div><h3>Leadership</h3><p>Fédérer une équipe pluridisciplinaire et piloter des projets transverses.</p></div>
-        <div><h3>Créativité</h3><p>Proposer des idées neuves et les transformer en formats concrets.</p></div>
-        <div><h3>Réactivité</h3><p>Garder le cap en direct, face aux imprévus et aux priorités qui changent.</p></div>
+        <div><h3>Stratégie &amp; Analyse</h3><p>Sens de la stratégie et capacité d'analyse approfondie pour un impact maximal.</p></div>
+        <div><h3>Leadership</h3><p>Fédérer les talents, esprit d'équipe et pilotage de projets transverses.</p></div>
+        <div><h3>Créativité</h3><p>Conception d'idées novatrices et force de proposition constante.</p></div>
+        <div><h3>Réactivité</h3><p>Adaptabilité face aux imprévus et gestion agile des priorités.</p></div>
       </div>
     </div>
   </div>
@@ -289,7 +319,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section class="numbers" id="chiffres">
   <div class="wrap">
     <div class="head">
-      <h2><span class="serif">Les chiffres</span>de la tournée</h2>
+      <h2>Résultats clés</h2>
       <p>Ce que mes contenus ont produit, mesuré sur les plateformes où ils ont été diffusés.</p>
     </div>
     <div class="nums">
@@ -304,8 +334,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <!-- TOURNÉE -->
 <section class="tour" id="tournee">
   <div class="head">
-    <h2><span class="serif">Les dates</span>de la tournée</h2>
-    <p>De la radio à la communication nationale. Faites défiler pour suivre le parcours.</p>
+    <h2>Expérience professionnelle</h2>
+    <p>Plus de 9 ans de parcours, de la radio à la communication nationale.</p>
   </div>
   <div class="track" id="track">
     <article class="date now">
@@ -354,7 +384,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       </ul>
     </article>
     <article class="date end">
-      <p>Prochaine date<span class="serif">chez vous ?</span></p>
+      <p>Votre prochain<span class="serif">projet ?</span></p>
       <a class="pill hot" href="#contact">Me contacter</a>
     </article>
   </div>
@@ -364,7 +394,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section class="setlist" id="setlist">
   <div class="wrap">
     <div class="head">
-      <h2><span class="serif">La setlist</span>Productions</h2>
+      <h2>Vidéos</h2>
       <p>Capsules, aftermovies, podcasts et webinaires conçus, tournés et montés avec mes équipes.</p>
     </div>
     <div class="reel">
@@ -392,32 +422,32 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section class="backstage" id="backstage">
   <div class="wrap">
     <div class="head">
-      <h2><span class="serif">En coulisses</span>Backstage</h2>
-      <p>Ce que je maîtrise, du plan stratégique jusqu'à la timeline de montage.</p>
+      <h2>Compétences &amp; outils</h2>
+      <p>Compétences clés, logiciels maîtrisés et formations.</p>
     </div>
     <div class="bs-grid">
-      <ul class="skill-list">
-        <li>Stratégie digitale</li>
-        <li>Réseaux sociaux</li>
-        <li>Production audiovisuelle</li>
-        <li>Événementiel</li>
-        <li>Management d'équipe</li>
-        <li>Storytelling</li>
-        <li>Presse &amp; partenariats</li>
-      </ul>
+      <div><h3 class="bs-title">Compétences clés</h3><ul class="skill-list">
+        <li>Stratégie de communication digitale</li>
+        <li>Communication &amp; réseaux sociaux</li>
+        <li>Production audiovisuelle &amp; montage</li>
+        <li>Événementiel &amp; gestion de projets</li>
+        <li>Management &amp; coordination d'équipes</li>
+        <li>Création de contenus &amp; storytelling</li>
+        <li>Relation presse &amp; partenariats</li>
+      </ul></div>
       <div class="bs-side">
-        <h3>Le matos</h3>
+        <h3>Outils &amp; logiciels</h3>
         <div class="stickers">
-          <span>Premiere Pro</span><span>Photoshop</span><span>OBS Studio</span><span>Streamyard</span><span>Livestorm</span><span>Hootsuite</span><span>Meta Business Suite</span><span>Canva</span><span>PowerPoint</span><span>Trello</span><span>WordPress</span><span>Google Analytics</span>
+          <span>Adobe Premiere Pro</span><span>Photoshop</span><span>OBS Studio</span><span>Streamyard</span><span>Livestorm</span><span>Hootsuite</span><span>Meta Business Suite</span><span>Canva</span><span>PowerPoint</span><span>Trello</span><span>WordPress</span><span>Google Analytics</span>
         </div>
         <div class="pass">
-          <div class="ph"><b>All access</b><span>FORMATIONS</span></div>
+          <div class="ph"><b>Formations</b></div>
           <dl>
-            <div><dt>BTS Communication</dt><dd>Studio École de France, 2013 – 2015</dd></div>
+            <div><dt>BTS Communication, option Animation des médias</dt><dd>Studio École de France, 2013 – 2015</dd></div>
             <div><dt>Management d'équipe</dt><dd>Formation continue</dd></div>
             <div><dt>Adobe Premiere Pro</dt><dd>Niveau 3</dd></div>
             <div><dt>Photoshop</dt><dd>Niveau 4</dd></div>
-            <div><dt>Community Manager</dt><dd>Spécialisation</dd></div>
+            <div><dt>Community Manager</dt><dd>Spécialisation professionnelle</dd></div>
           </dl>
         </div>
       </div>
@@ -428,8 +458,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <p class="pre">Un poste, un projet, un événement ?</p>
-    <h2 class="poster">On monte<br>sur&nbsp;scène&nbsp;?</h2>
+    <p class="pre">Envie d'échanger sur un projet ou une opportunité ?</p>
+    <h2 class="poster">Contact</h2>
     <a class="mail" href="mailto:o.leguedey@gmail.com">o.leguedey@gmail.com</a>
     <div class="c-row">
       <a class="pill hot" href="https://www.linkedin.com/in/odran-leguedey-1ba278154/" target="_blank" rel="noopener">LinkedIn</a>
@@ -442,13 +472,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </section>
 </main>
 
+<aside class="toast glass" id="toast" aria-live="polite">
+  <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></div>
+  <div><b>Besoin de mon CV ?</b><a href="https://oleguedey-ctrl.github.io/CV%20ODRAN%20LEGUEDEY.pdf" target="_blank" rel="noopener">Télécharger le PDF</a></div>
+  <button class="x" type="button" id="toast-x" aria-label="Fermer">✕</button>
+</aside>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var loader = document.querySelector('.loader');
   var hasGsap = window.gsap && window.ScrollTrigger;
 
   // Copier l'email
@@ -456,6 +491,34 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   cp.addEventListener('click', function(){
     var l = cp.textContent;
     if (navigator.clipboard) navigator.clipboard.writeText('o.leguedey@gmail.com').then(function(){ cp.textContent = 'Copié !'; setTimeout(function(){ cp.textContent = l }, 1600) }, function(){});
+  });
+
+  // Menu mobile
+  var top = document.querySelector('.top'), burger = document.getElementById('burger');
+  function closeMenu(){ top.classList.remove('open'); burger.setAttribute('aria-expanded','false'); burger.setAttribute('aria-label','Ouvrir le menu') }
+  burger.addEventListener('click', function(){
+    var o = top.classList.toggle('open');
+    burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  document.querySelectorAll('.menu a').forEach(function(a){ a.addEventListener('click', closeMenu) });
+  addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu() });
+
+  // Section active dans le menu
+  var links = {}; document.querySelectorAll('.menu a').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a });
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting){ for (var k in links) links[k].classList.toggle('on', k === e.target.id) }
+    }) }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(links).forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el) });
+  }
+
+  // Notification CV
+  var toast = document.getElementById('toast'), seen = false;
+  try { seen = sessionStorage.getItem('cvToast') === '1' } catch(e){}
+  if (!seen) setTimeout(function(){ toast.classList.add('show') }, 2600);
+  document.getElementById('toast-x').addEventListener('click', function(){
+    toast.classList.remove('show');
+    try { sessionStorage.setItem('cvToast','1') } catch(e){}
   });
 
   // Curseur
@@ -471,7 +534,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     });
   }
 
-  if (!hasGsap || reduce){ loader.remove(); document.querySelectorAll('.say .w').forEach(function(w){ w.style.opacity = 1 }); return; }
+  if (!hasGsap || reduce){ document.querySelectorAll('.say .w').forEach(function(w){ w.style.opacity = 1 }); return; }
   gsap.registerPlugin(ScrollTrigger);
 
   // Défilement fluide
@@ -486,16 +549,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     });
   }
 
-  // Intro : compteur puis rideau
-  var c = { v: 0 }, cnt = document.getElementById('cnt');
-  var intro = gsap.timeline();
-  intro.to(c, { v: 100, duration: 1.4, ease: 'power2.inOut', onUpdate: function(){ cnt.textContent = Math.round(c.v) } })
-       .to(loader, { yPercent: -100, duration: .9, ease: 'expo.inOut' }, '+=.1')
-       .set(loader, { display: 'none' })
-       .from('.hero h1 .ln', { yPercent: 110, duration: 1.1, ease: 'expo.out' }, '-=.45')
-       .from('.hero .role', { y: 30, opacity: 0, duration: .9, ease: 'power3.out' }, '-=.8')
-       .from('.hero-tag, .hero-base', { y: 20, opacity: 0, duration: .8, stagger: .1, ease: 'power3.out' }, '-=.7')
-       .from('.hero-media', { scale: 1.25, duration: 1.8, ease: 'expo.out' }, '-=1.6');
+  // Entrée : la vidéo se pose, le nom monte
+  var intro = gsap.timeline({ delay: .15 });
+  intro.from('.hero-media', { scale: 1.2, opacity: 0, duration: 1.8, ease: 'expo.out' })
+       .from('.top .wrap', { y: -30, opacity: 0, duration: 1, ease: 'expo.out' }, .2)
+       .from('.hero h1 .ln', { yPercent: 110, duration: 1.1, ease: 'expo.out' }, .35)
+       .from('.hero .role', { y: 30, opacity: 0, duration: .9, ease: 'power3.out' }, .55)
+       .from('.hero-tag, .hero-base', { y: 20, opacity: 0, duration: .8, stagger: .1, ease: 'power3.out' }, .7);
 
   // Hero : la vidéo se referme en écran au scroll
   gsap.to('.hero-media', { clipPath: 'inset(6% 4% 6% 4% round 18px)', ease: 'none',
